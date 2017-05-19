@@ -376,6 +376,87 @@ a:not([href]):not([tabindex]):hover {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
+.item-boxes a .facebook i{
+  color: #4867aa;
+}
+
+.item-boxes .facebook:hover{
+	background: #4867aa;
+}
+
+.item-boxes a .facebook i:hover {
+  color: #ffffff;
+}
+
+.item-boxes a .instagram {
+  background: url('../img/social/instagram.jpg') no-repeat center center transparent;
+}
+
+/* .item-boxes a .instagram i{ */
+  /* color: #4867aa; */
+/* } */
+
+/* .item-boxes .instagram:hover{ */
+	/* background: #4867aa; */
+/* } */
+
+/* .item-boxes a .instagram i:hover { */
+  /* color: #ffffff; */
+/* } */
+
+.item-boxes a .periscope {
+  background: url('../img/social/periscope.png') no-repeat center center transparent;
+}
+
+/* .item-boxes a .periscope i{ */
+  /* color: #4867aa; */
+/* } */
+
+/* .item-boxes .periscope:hover{ */
+	/* background: #4867aa; */
+/* } */
+
+/* .item-boxes a .periscope i:hover { */
+  /* color: #ffffff; */
+/* } */
+
+.item-boxes a .snapchat i{
+  color: #fffc00;
+}
+
+.item-boxes .snapchat:hover{
+	background: #fffc00;
+}
+
+.item-boxes a .snapchat i:hover {
+  color: #ffffff;
+}
+
+.item-boxes a .twitter i{
+  color: #1da1f2;
+}
+
+.item-boxes .twitter:hover{
+	background: #1da1f2;
+}
+
+.item-boxes a .twitter i:hover {
+  color: #ffffff;
+}
+
+.item-boxes a .pinterest i{
+  color: #bd081c;
+}
+.item-boxes .pinterest:hover{
+  background: #bd081c;
+}
+
+.item-boxes a .pinterest i:hover {
+  color: #ffffff;
+}
+
+
 .item-boxes .icon i {
   font-size: 30px;
   line-height: 60px;
