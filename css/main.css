@@ -640,14 +640,17 @@ a:not([href]):not([tabindex]):hover {
 /* ==========================================================================
    Portfolio Section
    ========================================================================== */
-#portfolios {
+#shop {
   background: #f2f2f2;
 }
-#portfolios .mix {
+#shop .mix {
   padding: 10px;
 }
-#portfolios .portfolio-item .shot-item {
+#shop .portfolio-item .shot-item {
   margin: 0px;
+}
+#shop .portfolio-item .shot-item .overlay {
+  opacity: 1;
 }
 #portfolio-list .mix {
   display: none;
@@ -1935,14 +1938,17 @@ a:not([href]):not([tabindex]):hover {
 /* ==========================================================================
    Portfolio Section
    ========================================================================== */
-#portfolios {
+#shop {
   background: #f2f2f2;
 }
-#portfolios .mix {
+#shop .mix {
   padding: 10px;
 }
-#portfolios .portfolio-item .shot-item {
+#shop .portfolio-item .shot-item {
   margin: 0px;
+}
+#shop .portfolio-item .shot-item .overlay {
+  opacity: 1;
 }
 #portfolio-list .mix {
   display: none;
