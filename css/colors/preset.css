@@ -64,13 +64,13 @@ a:hover{
 .item-boxes .icon i{
 	color: #94C523;
 }
-#features .box-item .icon{
+#about-me .box-item .icon{
 	border-color: #94C523;
 }
-#features .box-item .icon i{
+#about-me .box-item .icon i{
 	color: #94C523;
 }
-#features .box-item:hover .icon{
+#about-me .box-item:hover .icon{
 	background: #94C523;
 }
 .video-promo .video-promo-content .video-popup:hover{

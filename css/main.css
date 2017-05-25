@@ -491,10 +491,10 @@ a:not([href]):not([tabindex]):hover {
 /* ==========================================================================
    Features Section Style
    ========================================================================== */
-#features {
+#about-me {
   background: #fff;
 }
-#features .icon {
+#about-me .icon {
   display: inline-block;
   width: 60px;
   height: 60px;
@@ -503,26 +503,26 @@ a:not([href]):not([tabindex]):hover {
   position: relative;
   z-index: 1;
 }
-#features .content-left {
+#about-me .content-left {
   position: relative;
   top: 60px;
 }
-#features .content-left span {
+#about-me .content-left span {
   float: right;
   margin-left: 25px;
 }
-#features .content-right {
+#about-me .content-right {
   position: relative;
   top: 60px;
 }
-#features .content-right span {
+#about-me .content-right span {
   float: left;
   margin-right: 25px;
 }
-#features .box-item {
+#about-me .box-item {
   padding-bottom: 30px;
 }
-#features .box-item .icon {
+#about-me .box-item .icon {
   border: 1px solid #4676fa;
   text-align: center;
   margin: 12px;
@@ -531,7 +531,7 @@ a:not([href]):not([tabindex]):hover {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-#features .box-item .icon i {
+#about-me .box-item .icon i {
   color: #4676fa;
   font-size: 24px;
   line-height: 60px;
@@ -540,25 +540,25 @@ a:not([href]):not([tabindex]):hover {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-#features .box-item .text h4 {
+#about-me .box-item .text h4 {
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
 }
-#features .box-item .text p {
+#about-me .box-item .text p {
   font-size: 14px;
   line-height: 26px;
 }
-#features .box-item:hover .icon {
+#about-me .box-item:hover .icon {
   background: #4676fa;
 }
-#features .box-item:hover .icon i {
+#about-me .box-item:hover .icon i {
   color: #ffffff;
 }
-#features .show-box {
+#about-me .show-box {
   padding: 80px 0px 0px;
 }
-#features .show-box img {
+#about-me .show-box img {
   width: 100%;
 }
 /* ==========================================================================
@@ -1786,10 +1786,10 @@ a:not([href]):not([tabindex]):hover {
 /* ==========================================================================
    Features Section Style
    ========================================================================== */
-#features {
+#about-me {
   background: #fff;
 }
-#features .icon {
+#about-me .icon {
   display: inline-block;
   width: 60px;
   height: 60px;
@@ -1798,26 +1798,26 @@ a:not([href]):not([tabindex]):hover {
   position: relative;
   z-index: 1;
 }
-#features .content-left {
+#about-me .content-left {
   position: relative;
   top: 60px;
 }
-#features .content-left span {
+#about-me .content-left span {
   float: right;
   margin-left: 25px;
 }
-#features .content-right {
+#about-me .content-right {
   position: relative;
   top: 60px;
 }
-#features .content-right span {
+#about-me .content-right span {
   float: left;
   margin-right: 25px;
 }
-#features .box-item {
+#about-me .box-item {
   padding-bottom: 30px;
 }
-#features .box-item .icon {
+#about-me .box-item .icon {
   border: 1px solid #4676fa;
   text-align: center;
   margin: 12px;
@@ -1826,7 +1826,7 @@ a:not([href]):not([tabindex]):hover {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-#features .box-item .icon i {
+#about-me .box-item .icon i {
   color: #4676fa;
   font-size: 24px;
   line-height: 60px;
@@ -1835,25 +1835,25 @@ a:not([href]):not([tabindex]):hover {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-#features .box-item .text h4 {
+#about-me .box-item .text h4 {
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
 }
-#features .box-item .text p {
+#about-me .box-item .text p {
   font-size: 14px;
   line-height: 26px;
 }
-#features .box-item:hover .icon {
+#about-me .box-item:hover .icon {
   background: #4676fa;
 }
-#features .box-item:hover .icon i {
+#about-me .box-item:hover .icon i {
   color: #ffffff;
 }
-#features .show-box {
+#about-me .show-box {
   padding: 80px 0px 0px;
 }
-#features .show-box img {
+#about-me .show-box img {
   width: 100%;
 }
 /* ==========================================================================
