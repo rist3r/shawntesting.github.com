@@ -1,0 +1,56 @@
+<!-- 
+<li class="nav-item">
+	<a class="nav-link" href="#reviews">Customer Reviews</a>
+</li>
+-->
+						
+<!-- Customer Reviews Section Start -->
+	<section style="display:none;" id="reviews" class="video-promo section" data-stellar-background-ratio="0.5">
+		<!-- <div class="overlay"></div> -->
+		<div class="container">
+			<div class="section-header">
+				<h2 class="section-title wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">Customer <span>Reviews</span></h2>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="download-area text-center wow fadeInUp" data-wow-delay="0.3s">
+						<div>
+							<div class="container">
+								<div class="row justify-content-md-center">
+									<div class="col-md-10 wow fadeInRight" data-wow-delay="0.2s">
+										<div class="touch-slider owl-carousel owl-theme">
+											<div class="testimonial-item">
+												<img src="img/testimonial/customer1.png" alt="Client Testimonoal" />
+												<div class="testimonial-text">
+													<p>Morbi eget dictum enim. Praesent sed quam sit amet lorem tempor rhoncus. <br>In hac habitasse platea dictumst. Vivamus in accumsan ex</p>
+													<h3>- Rebecca Wilson</h3>
+													<!-- <span>Marketing Head Matrix media</span> -->
+												</div>
+											</div>
+											<div class="testimonial-item">
+												<img src="img/testimonial/customer2.png" alt="Client Testimonoal" />
+												<div class="testimonial-text">
+													<p>Morbi eget dictum enim. Praesent sed quam sit amet lorem tempor rhoncus. <br>In hac habitasse platea dictumst. Vivamus in accumsan ex</p>
+													<h3>- Christina ???</h3>
+													<!-- <span>President Lexo Inc</span> -->
+												</div>
+											</div>
+											<div class="testimonial-item">
+												<img src="img/testimonial/customer3.png" alt="Client Testimonoal" />
+												<div class="testimonial-text">
+													<p>Morbi eget dictum enim. Praesent sed quam sit amet lorem tempor rhoncus. <br>In hac habitasse platea dictumst. Vivamus in accumsan ex</p>
+													<h3>- Randi Shelton</h3>
+													<!-- <span>CEO Optima Inc</span> -->
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<!-- Customer Reviews Section End -->
