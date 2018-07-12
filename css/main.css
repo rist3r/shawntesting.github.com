@@ -1,12 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@font-face {
+   font-family: Brusher; 
+   src: url('font/Brusher.otf');
+} 
+/* @import url('https://fonts.googleapis.com/css?family=Lato:300'); */
 /* @import url('https://fonts.googleapis.com/css?family=Raleway:100,600'); */
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   color: #333;
   font-size: 14px;
   font-weight: 300;
   background: #fff;
   overflow-x: hidden;
+}
+.brusher {
+	font-family: 'Brusher', sans-serif;
 }
 p {
   font-size: 14px;
@@ -34,7 +43,13 @@ a {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
   display: inline-block;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
+}
+.btn-huge {
+  font-size: 32px;
+  height: 60px;
+  width: 350px;
 }
 .btn:focus {
   box-shadow: none;
@@ -120,7 +135,8 @@ a:not([href]):not([tabindex]):hover {
   margin-top: 0;
   text-transform: uppercase;
   font-weight: 100;
-  color: #0d3559;
+  /* color: #0d3559; */
+  color: #E66283;
   position: relative;
 }
 .section-header .section-title span {
@@ -1041,7 +1057,8 @@ a:not([href]):not([tabindex]):hover {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 .form-control:focus {
   box-shadow: none;
@@ -1103,7 +1120,8 @@ a:not([href]):not([tabindex]):hover {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   cursor: pointer;
 }
 /* ==========================================================================
@@ -1231,7 +1249,8 @@ footer {
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   cursor: pointer;
 }
 .back-to-top {
@@ -1309,15 +1328,24 @@ footer {
   }
 }
 =======
-@import url('https://fonts.googleapis.com/css?family=Lato:300');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@font-face {
+   font-family: Brusher; 
+   src: url('font/Brusher.otf');
+} 
+/* @import url('https://fonts.googleapis.com/css?family=Lato:300'); */
 /* @import url('https://fonts.googleapis.com/css?family=Raleway:100,600'); */
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   color: #333;
   font-size: 14px;
   font-weight: 300;
   background: #fff;
   overflow-x: hidden;
+}
+.brusher {
+	font-family: 'Brusher', sans-serif;
 }
 p {
   font-size: 14px;
@@ -1345,7 +1373,13 @@ a {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
   display: inline-block;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
+}
+.btn-huge {
+  font-size: 32px;
+  height: 60px;
+  width: 350px;
 }
 .btn:focus {
   box-shadow: none;
@@ -1431,7 +1465,8 @@ a:not([href]):not([tabindex]):hover {
   margin-top: 0;
   text-transform: uppercase;
   font-weight: 100;
-  color: #0d3559;
+  /* color: #0d3559; */
+  color: #E66283;
   position: relative;
 }
 .section-header .section-title span {
@@ -2339,7 +2374,8 @@ a:not([href]):not([tabindex]):hover {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
 }
 .form-control:focus {
   box-shadow: none;
@@ -2401,7 +2437,8 @@ a:not([href]):not([tabindex]):hover {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   cursor: pointer;
 }
 /* ==========================================================================
@@ -2529,7 +2566,8 @@ footer {
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
   cursor: pointer;
 }
 .back-to-top {
