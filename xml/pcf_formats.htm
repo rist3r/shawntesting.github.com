@@ -491,40 +491,28 @@ div.WordSection1
 				// For Other Browsers (Mozilla Firefox, Netscape ...)
 				else {
 					// Load XML
-					//var xml = document.implementation.createDocument("", "", null);
-					//xml.async = false;
-					//xml.load(xsd);
-					//alert(xsd);
-					xmlhttp=new XMLHttpRequest();
-					xmlhttp.open("GET",xsd,false);
-					xmlhttp.send();
-					xmlDocument=xmlhttp.responseText;
-					
+					var xml = document.implementation.createDocument("", "", null);
+					xml.async = false;
+					xml.load(xsd)
+	
 					// Load XSL
-					//var xsl = document.implementation.createDocument("", "", null);
-					//xsl.async = false;
-					//xsl.load(stylesheet)
-					xslhttp=new XMLHttpRequest();
-					xslhttp.open("GET",stylesheet,false);
-					xslhttp.send();
-					xslDocument=xslhttp.responseText;
-					
+					var xsl = document.implementation.createDocument("", "", null);
+					xsl.async = false;
+					xsl.load(stylesheet)
+	
 					// Create Processor and Transform XML
 					var proc = new XSLTProcessor();
-					//proc.importStylesheet(xslDocument);
-					var output = proc.transformToDocument(xmlDocument);
-					alert(output);
-
-					alert("convert");
-					// Convert from DOM syntax to XML syntax					
+					proc.importStylesheet(xsl);
+					var output = proc.transformToDocument(xml);
+	
+					// Convert from DOM syntax to XML syntax
 					var xmls = new XMLSerializer();
 					var outputString = xmls.serializeToString(output);
 	
 					// Output XML
-					document.write(str);
+					document.write(outputString);
 				}
 			}
-			
 </script>
 <!--[if gte mso 9]><xml>
  <o:shapedefaults v:ext="edit" spidmax="1026"/>
@@ -590,10 +578,10 @@ height=63 id="_x0000_i1029" src="../../gif/1_banner_r.gif"></span></a><o:p></o:p
     <td width=1224 valign=top style='width:917.7pt;border:solid white 1.0pt;
     padding:0in 5.4pt 0in 5.4pt'>
     <p align=center style='text-align:center'><span style='font-size:18.0pt'><a
-    href="javascript:transformSchema('https://raw.githubusercontent.com/rist3r/rist3r.github.io/master/xml/messagelist.xml','https://raw.githubusercontent.com/rist3r/rist3r.github.io/master/xml/message_list.xsl')">Click
+    href="javascript:transformSchema('./messagelist.xml','./message_list.xsl')">Click
     Here to view the XML-MTF Message Catalog</a><br>
     <a
-    href="javascript:transformSchema('https://raw.githubusercontent.com/rist3r/rist3r.github.io/master/xml/messagelist.xml','https://raw.githubusercontent.com/rist3r/rist3r.github.io/master/xml/message_list.xsl')"><span
+    href="javascript:transformSchema('./messagelist.xml','./message_list.xsl')"><span
     style='text-decoration:none;text-underline:none'>&nbsp;</span>Presentation
     Capabilities Format (PCF) Reports</a> </span><o:p></o:p></p>
     <p class=MsoNormal style='text-align:justify'><b><span style='font-size:
