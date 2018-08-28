@@ -1,0 +1,527 @@
+<?xml version="1.0" ?> 
+<xsd:schema targetNamespace="urn:mtf:mil:6040b:airliftreq:B.1.01.15" xml:lang="en-US" xmlns="urn:mtf:mil:6040b:airliftreq:B.1.01.15" xmlns:s="urn:mtf:mil:6040b:airliftreq:B.1.01.15:set" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ism="urn:us:gov:ic:ism:v2" xmlns:ddms="http://metadata.dod.mil/mdr/ns/DDMS/2.0/" xmlns:ICISM="urn:us:gov:ic:ism:v2" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+ <xsd:import namespace="urn:mtf:mil:6040b:airliftreq:B.1.01.15:set" schemaLocation="sets.xsd" />
+ <xsd:import namespace="urn:us:gov:ic:ism:v2" schemaLocation="IC-ISM-v2.xsd" />
+ <xsd:annotation>
+  <xsd:appinfo>
+   <ddms:security ICISM:classification="U" ICISM:ownerProducer="USA" ICISM:nonICmarkings="DIST_STMT_C" />
+  </xsd:appinfo>
+  <xsd:appinfo>DISTRIBUTION STATEMENT C. Distribution authorized to U.S. Government Agencies and their contractors only for administrative or operational use. Other requests for this document shall be referred to Defense Information Systems Agency Interoperability Directorate. WARNING - This document contains technical data whose export is restricted by the Arms Export Control Act (Title 22, U.S.C., Sec. 2751) or the Export Administration Act of 1979, as amended, Title 50, U.S.C., App. 2401. Violations of these export laws are subject to severe criminal penalties.  Disseminate in accordance with provisions of DOD Directive 5230.25.</xsd:appinfo>
+ </xsd:annotation><xsd:element name="AirliftRequest">
+ <xsd:annotation>
+  <xsd:documentation>The AIRLIFTREQ is used to request common user (inter-and intra-theater) airlift support for peacetime missions, exercises, contingencies, and wartime.</xsd:documentation>
+  <xsd:appinfo>
+   <MtfName>AIRLIFT REQUEST</MtfName>
+   <MtfIdentifier>AIRLIFTREQ</MtfIdentifier>
+   <MtfIndexReferenceNumber>D630</MtfIndexReferenceNumber>
+   <MtfSponsor>USAF/USN</MtfSponsor>
+   <MtfPurpose>The AIRLIFTREQ is used to request common user (inter-and intra-theater) airlift support for peacetime missions, exercises, contingencies, and wartime.</MtfPurpose>
+   <MtfRelatedDocument>For further U.S. implementation guidance, see Repository of USMTF Program Items Document, items 20, 22, 29,199, 228, and 229.</MtfRelatedDocument>
+   <MtfRemark>B.1.01.14 was updated by ICP M2017-04, which updated the REF Set.</MtfRemark>
+   <MtfNote>The AIRLIFTREQ is also used to request naval Operational Support Aircraft (OSA). This message is transmitted by the requesting unit to their respective service/command/theater validating agency. A copy is also transmitted to the airlift agency which will provide the support. Theater airlift requests are transmitted by the service validator to the theater commander's designated validating agency. This message supports both the preplanned and immediate fixed-wing airlift tasking cycles. The related messages are the Request Status/Tasking (REQSTATASK) and the Airlift Mission Schedule (ALMSNSCD).</MtfNote>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[3]F1 A /AIRLIFTREQ/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in MSGID (Set 3) is assigned the value "AIRLIFTREQ".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/MessageIdentifier/MessageTextFormatIdentifier))) then 'null' else xsn:or3(  string( /*:AirliftRequest/MessageIdentifier/MessageTextFormatIdentifier) eq "AIRLIFTREQ")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[3]F2 A /MIL-STD-6040(SERIES)/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 2 in MSGID (Set 3) is assigned the value "MIL-STD-6040(SERIES)".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/MessageIdentifier/StandardOfMessageTextFormat))) then 'null' else xsn:or3(  string( /*:AirliftRequest/MessageIdentifier/StandardOfMessageTextFormat) eq "MIL-STD-6040(SERIES)")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[3]F3 A /B.1.01.15/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 3 in MSGID (Set 3) is assigned the value "B.1.01.15".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/MessageIdentifier/VersionOfMessageTextFormat))) then 'null' else xsn:or3(  string( /*:AirliftRequest/MessageIdentifier/VersionOfMessageTextFormat) eq "B.1.01.15")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[4],AF3 R ([4],AF2 EQ /CHT/ | /DOC/)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 3 in REF (Set 4) is required if Field 2 in the same REF (Set 4) lexicographically equals "CHT" or "DOC".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/Reference))) then 'null' else xsn:and3( for $A in 1 to count( /*:AirliftRequest/Reference) return xsn:or3(  xsn:not3(   if ( not( exists( /*:AirliftRequest/Reference[ $A]/CommunicationType/*)) and not( exists( /*:AirliftRequest/Reference[ $A]/CommunicationType/*/*))) then 'null' else xsn:or3(  string( if ( exists( /*:AirliftRequest/Reference[ $A]/CommunicationType/*/*)) then string-join( /*:AirliftRequest/Reference[ $A]/CommunicationType/*/*,"") else string( /*:AirliftRequest/Reference[ $A]/CommunicationType/*)) eq "CHT",  string( if ( exists( /*:AirliftRequest/Reference[ $A]/CommunicationType/*/*)) then string-join( /*:AirliftRequest/Reference[ $A]/CommunicationType/*/*,"") else string( /*:AirliftRequest/Reference[ $A]/CommunicationType/*)) eq "DOC")),  if ( not( exists( /*:AirliftRequest/Reference[ $A]))) then 'null' else  count( /*:AirliftRequest/Reference[ $A]/InformationProduct) != 0  ))</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[7]FG,AF6 R ([7]FG,AF5 @)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 6 in the Field Group in 8ONOFF (Set 7) is required if Field 5 in the same Field Group in 8ONOFF (Set 7) occurs.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData/GroupOfFields))) then 'null' else xsn:and3( for $A in 1 to count( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData/GroupOfFields) return xsn:or3(  xsn:not3(  if ( not( exists( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData))) then 'null' else  count( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData/GroupOfFields[ $A]/Passengers) != 0  ),  if ( not( exists( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData))) then 'null' else  count( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData/GroupOfFields[ $A]/TotalBaggageWeight) != 0  ))</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[7]FG,AF8 RP ([7]FG,AF7 @)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 8 in the Field Group in 8ONOFF (Set 7) is required if Field 7 in the same Field Group in 8ONOFF (Set 7) occurs otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData/GroupOfFields))) then 'null' else xsn:and3( for $A in 1 to count( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData/GroupOfFields) return for $cond in if ( not( exists( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData))) then 'null' else  count( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData/GroupOfFields[ $A]/TotalCargoWeight) != 0  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  if ( not( exists( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData))) then 'null' else  count( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData/GroupOfFields[ $A]/TotalVolumeInCubicFeet) != 0  else  if ( not( exists( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData))) then 'null' else  count( /*:AirliftRequest/OnloadToOffloadLocationAndLoadData/GroupOfFields[ $A]/TotalVolumeInCubicFeet) = 0 )</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[10]FG,AF7 RP ([10]FG,AF6 @)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 7 in the Field Group in 9LOAD (Set 10) is required if Field 6 in the same Field Group in 9LOAD (Set 10) occurs otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields))) then 'null' else xsn:and3( for $A in 1 to count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields) return for $cond in if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation))) then 'null' else  count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields[ $A]/CargoWeight) != 0  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation))) then 'null' else  count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields[ $A]/CargoCubicSize) != 0  else  if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation))) then 'null' else  count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields[ $A]/CargoCubicSize) = 0 )</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[10]FG,AF8 RP ([10]FG,AF7 @)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 8 in the Field Group in 9LOAD (Set 10) is required if Field 7 in the same Field Group in 9LOAD (Set 10) occurs otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields))) then 'null' else xsn:and3( for $A in 1 to count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields) return for $cond in if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation))) then 'null' else  count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields[ $A]/CargoCubicSize) != 0  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation))) then 'null' else  count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields[ $A]/LengthOfItem) != 0  else  if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation))) then 'null' else  count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields[ $A]/LengthOfItem) = 0 )</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[10]FG,AF9 RP ([10]FG,AF7 @)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 9 in the Field Group in 9LOAD (Set 10) is required if Field 7 in the same Field Group in 9LOAD (Set 10) occurs otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields))) then 'null' else xsn:and3( for $A in 1 to count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields) return for $cond in if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation))) then 'null' else  count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields[ $A]/CargoCubicSize) != 0  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation))) then 'null' else  count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields[ $A]/WidthOfItem) != 0  else  if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation))) then 'null' else  count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields[ $A]/WidthOfItem) = 0 )</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[10]FG,AF10 RP ([10]FG,AF7 @)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 10 in the Field Group in 9LOAD (Set 10) is required if Field 7 in the same Field Group in 9LOAD (Set 10) occurs otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields))) then 'null' else xsn:and3( for $A in 1 to count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields) return for $cond in if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation))) then 'null' else  count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields[ $A]/CargoCubicSize) != 0  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation))) then 'null' else  count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields[ $A]/HeightOfItem) != 0  else  if ( not( exists( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation))) then 'null' else  count( /*:AirliftRequest/FixedWingAirliftCargoOrPassengerInformation/GroupOfFields[ $A]/HeightOfItem) = 0 )</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[14]FG,AF7 RP ([14]FG,AF6 @)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 7 in the Field Group in 8AIRDROP (Set 14) is required if Field 6 in the same Field Group in 8AIRDROP (Set 14) occurs otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/DropZoneData/GroupOfFields))) then 'null' else xsn:and3( for $A in 1 to count( /*:AirliftRequest/DropZoneData/GroupOfFields) return for $cond in if ( not( exists( /*:AirliftRequest/DropZoneData))) then 'null' else  count( /*:AirliftRequest/DropZoneData/GroupOfFields[ $A]/DropZoneLengthInMeters) != 0  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  if ( not( exists( /*:AirliftRequest/DropZoneData))) then 'null' else  count( /*:AirliftRequest/DropZoneData/GroupOfFields[ $A]/DropZoneWidthInMeters) != 0  else  if ( not( exists( /*:AirliftRequest/DropZoneData))) then 'null' else  count( /*:AirliftRequest/DropZoneData/GroupOfFields[ $A]/DropZoneWidthInMeters) = 0 )</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[14]FG,AF9 RP ([14]FG,AF8 @)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 9 in the Field Group in 8AIRDROP (Set 14) is required if Field 8 in the same Field Group in 8AIRDROP (Set 14) occurs otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/DropZoneData/GroupOfFields))) then 'null' else xsn:and3( for $A in 1 to count( /*:AirliftRequest/DropZoneData/GroupOfFields) return for $cond in if ( not( exists( /*:AirliftRequest/DropZoneData))) then 'null' else  count( /*:AirliftRequest/DropZoneData/GroupOfFields[ $A]/MethodOfMarkingFriendlyPositions) != 0  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  if ( not( exists( /*:AirliftRequest/DropZoneData))) then 'null' else  count( /*:AirliftRequest/DropZoneData/GroupOfFields[ $A]/Color) != 0  else  if ( not( exists( /*:AirliftRequest/DropZoneData))) then 'null' else  count( /*:AirliftRequest/DropZoneData/GroupOfFields[ $A]/Color) = 0 )</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[16]F1 A /BILLING INSTRUCTIONS/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in GENTEXT (Set 16) is assigned the value "BILLING INSTRUCTIONS".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirliftRequest/GeneralText/TextIndicator))) then 'null' else xsn:or3(  string( /*:AirliftRequest/GeneralText/TextIndicator) eq "BILLING INSTRUCTIONS")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[18] RP ([3]F10 EQ /CONFIDENTIAL/ | /SECRET/ | /TOP SECRET/ | /RESTRICTED/ | /NATO RESTRICTED/ | /NATO CONFIDENTIAL/ | /NATO SECRET/ | /NATO SECRET-SAVATE/ | /NATO SECRET-AVICULA/ | /COSMIC TOP SECRET/ | /COSMIC TOP SECRET-BOHEMIA/ | /COSMIC TOP SECRET-BALK/ | /COSMIC TOP SECRET ATOMAL/ | /NATO SECRET ATOMAL/ | /NATO CONFIDENTIAL ATOMAL/)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>DECL (Set 18) is required if Field 10 in MSGID (SET 3) lexicographically equals "CONFIDENTIAL" or "SECRET" or "TOP SECRET" or "RESTRICTED" or "NATO RESTRICTED" or "NATO CONFIDENTIAL" or "NATO SECRET" or "NATO SECRET-SAVATE" or "NATO SECRET-AVICULA" or "COSMIC TOP SECRET" or "COSMIC TOP SECRET-BOHEMIA" or "COSMIC TOP SECRET-BALK" or "COSMIC TOP SECRET ATOMAL" or "NATO SECRET ATOMAL" or "NATO CONFIDENTIAL ATOMAL" otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>for $cond in  if ( not( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) and not( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*))) then 'null' else xsn:or3(  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "CONFIDENTIAL",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "SECRET",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "TOP SECRET",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "RESTRICTED",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO RESTRICTED",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO CONFIDENTIAL",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET-SAVATE",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET-AVICULA",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET-BOHEMIA",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET-BALK",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET ATOMAL",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET ATOMAL",  string( if ( exists( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirliftRequest/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO CONFIDENTIAL ATOMAL")  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  count( /*:AirliftRequest/MessageDowngradingOrDeclassificationData) != 0  else  count( /*:AirliftRequest/MessageDowngradingOrDeclassificationData) = 0</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[18]F2 RP ([18]F1 = FF679-4)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 2 in DECL (Set 18) is required if Field 1 in DECL (Set 18) uses alternative ORIGINAL CLASSIFICATION AUTHORITY (FF679-4) otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>for $cond in if ( not( exists( /*:AirliftRequest/MessageDowngradingOrDeclassificationData/SourceForClassification))) then 'null' else xsn:or3(  exists( /*:AirliftRequest/MessageDowngradingOrDeclassificationData/SourceForClassification/OriginalClassificationAuthority))  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  if ( not( exists( /*:AirliftRequest/MessageDowngradingOrDeclassificationData))) then 'null' else  count( /*:AirliftRequest/MessageDowngradingOrDeclassificationData/ReasonForClassification) != 0  else  if ( not( exists( /*:AirliftRequest/MessageDowngradingOrDeclassificationData))) then 'null' else  count( /*:AirliftRequest/MessageDowngradingOrDeclassificationData/ReasonForClassification) = 0</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <VersionIndicator>B.1.01.15</VersionIndicator>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+<xsd:sequence><xsd:choice minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <AlternativeType>Mutually Exclusive, None Required</AlternativeType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:element name="ExerciseIdentification" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+   <xsd:documentation>The EXER set provides the designated code name or nickname, if the message supports an exercise.</xsd:documentation>
+   <xsd:appinfo>
+    <SetFormatPositionName>EXERCISE IDENTIFICATION</SetFormatPositionName>
+    <SetFormatPositionNumber>1</SetFormatPositionNumber>
+    <SetFormatPositionConcept>The EXER set provides the designated code name or nickname, if the message supports an exercise.</SetFormatPositionConcept>
+    <SetFormatPositionUseDescription />
+    <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+    <Repeatability>1</Repeatability>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexType>
+   <xsd:complexContent>
+    <xsd:extension base="s:ExerciseIdentificationType">
+     <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="1" />
+     <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+    </xsd:extension>
+   </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:element>
+ <xsd:element name="OperationIdentificationData" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+   <xsd:documentation>The OPER set provides the designated code name or nickname, if the message supports an operation.</xsd:documentation>
+   <xsd:appinfo>
+    <SetFormatPositionName>OPERATION IDENTIFICATION DATA</SetFormatPositionName>
+    <SetFormatPositionNumber>2</SetFormatPositionNumber>
+    <SetFormatPositionConcept>The OPER set provides the designated code name or nickname, if the message supports an operation.</SetFormatPositionConcept>
+    <SetFormatPositionUseDescription />
+    <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+    <Repeatability>1</Repeatability>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexType>
+   <xsd:complexContent>
+    <xsd:extension base="s:OperationIdentificationDataType">
+     <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="2" />
+     <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+    </xsd:extension>
+   </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:element>
+</xsd:choice>
+
+<xsd:element name="MessageIdentifier" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The MSGID set provides the message identification and originator.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>MESSAGE IDENTIFIER</SetFormatPositionName>
+   <SetFormatPositionNumber>3</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The MSGID set provides the message identification and originator.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:MessageIdentifierType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="3" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="Reference" minOccurs="0" maxOccurs="unbounded">
+ <xsd:annotation>
+  <xsd:documentation>The REF set provides both USMTF and non-USMTF references.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>REFERENCE</SetFormatPositionName>
+   <SetFormatPositionNumber>4</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The REF set provides both USMTF and non-USMTF references.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>unbounded</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:ReferenceType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="4" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="MessageCancellationWithNewInformationProvided" minOccurs="0" maxOccurs="unbounded">
+ <xsd:annotation>
+  <xsd:documentation>The CANX set cancels the AIRLIFTREQ message and provides new information. If a facility wants to cancel a message and not provide new information, the MSGCORRCANX message should be used.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>MESSAGE CANCELLATION WITH NEW INFORMATION PROVIDED</SetFormatPositionName>
+   <SetFormatPositionNumber>5</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The CANX set cancels the AIRLIFTREQ message and provides new information. If a facility wants to cancel a message and not provide new information, the MSGCORRCANX message should be used.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>unbounded</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:MessageCancellationWithNewInformationProvidedType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="5" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="AirliftRequestInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 8LIFTREQ set requests support for common-user airlift.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>AIRLIFT REQUEST INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>6</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 8LIFTREQ set requests support for common-user airlift.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:AirliftRequestInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="6" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="OnloadToOffloadLocationAndLoadData" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 8ONOFF set provides the on-load and off-load location and a summary of the requested load information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>ONLOAD TO OFFLOAD LOCATION AND LOAD DATA</SetFormatPositionName>
+   <SetFormatPositionNumber>7</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 8ONOFF set provides the on-load and off-load location and a summary of the requested load information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:OnloadToOffloadLocationAndLoadDataType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="7" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="AirliftTimingInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 8TIMING set provides the desired on-load and off-load times.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>AIRLIFT TIMING INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>8</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 8TIMING set provides the desired on-load and off-load times.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:AirliftTimingInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="8" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="AircraftMissionSupportRequirements" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 8MSNSPT set specifies the mission support equipment and/or personnel needed or if a specific aircraft configuration is desired.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>AIRCRAFT MISSION SUPPORT REQUIREMENTS</SetFormatPositionName>
+   <SetFormatPositionNumber>9</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 8MSNSPT set specifies the mission support equipment and/or personnel needed or if a specific aircraft configuration is desired.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:AircraftMissionSupportRequirementsType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="9" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="FixedWingAirliftCargoOrPassengerInformation" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 9LOAD set provides the details for the passengers and/or cargo information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>FIXED-WING AIRLIFT CARGO OR PASSENGER INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>10</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 9LOAD set provides the details for the passengers and/or cargo information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:FixedWingAirliftCargoOrPassengerInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="10" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="HazardousCargoDescription" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 8HAZARD set provides details on hazardous cargo being airlifted.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>HAZARDOUS CARGO DESCRIPTION</SetFormatPositionName>
+   <SetFormatPositionNumber>11</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 8HAZARD set provides details on hazardous cargo being airlifted.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:HazardousCargoDescriptionType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="11" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="InformationConcerningTheMovementOfAVeryImportantPersonVip" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 8VIPCODE set provides information on the airlift of very important persons (VIP).</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>INFORMATION CONCERNING THE MOVEMENT OF A VERY IMPORTANT PERSON (VIP)</SetFormatPositionName>
+   <SetFormatPositionNumber>12</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 8VIPCODE set provides information on the airlift of very important persons (VIP).</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:InformationConcerningTheMovementOfAVeryImportantPersonVipType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="12" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="AirliftContactInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 9CONTACT set identifies the points of contact concerning the passengers and/or cargo to be airlifted.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>AIRLIFT CONTACT INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>13</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 9CONTACT set identifies the points of contact concerning the passengers and/or cargo to be airlifted.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:AirliftContactInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="13" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="DropZoneData" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 8AIRDROP set provides data for the drop zone. Any significant obstructions within 5 kilometers of the drop zone should be described in an accompanying AMPN set.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>DROP ZONE DATA</SetFormatPositionName>
+   <SetFormatPositionNumber>14</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 8AIRDROP set provides data for the drop zone. Any significant obstructions within 5 kilometers of the drop zone should be described in an accompanying AMPN set.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:DropZoneDataType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="14" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="AirMissionControlAgencyInformation" minOccurs="0" maxOccurs="unbounded">
+ <xsd:annotation>
+  <xsd:documentation>The CONTROL8 set provides the control information on a control agency to participate in the airlift mission.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>AIR MISSION CONTROL AGENCY INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>15</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The CONTROL8 set provides the control information on a control agency to participate in the airlift mission.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>unbounded</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:AirMissionControlAgencyInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="15" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="GeneralText" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The GENTEXT/BILLING INSTRUCTIONS set provides billing instructions for the requested airlift.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>GENERAL TEXT</SetFormatPositionName>
+   <SetFormatPositionNumber>16</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The GENTEXT/BILLING INSTRUCTIONS set provides billing instructions for the requested airlift.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>Field 1 of the GENTEXT set must equal "BILLING INSTRUCTIONS".</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:GeneralTextType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="16" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="Acknowledge" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The AKNLDG set provides operator acknowledgment and not communications center acknowledgment.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>ACKNOWLEDGE</SetFormatPositionName>
+   <SetFormatPositionNumber>17</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The AKNLDG set provides operator acknowledgment and not communications center acknowledgment.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:AcknowledgeType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="17" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="Remarks" minOccurs="0" maxOccurs="1">
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:RemarksType">
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+<xsd:element name="MessageDowngradingOrDeclassificationData" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The DECL set provides declassification or downgrading instructions, if the message is classified.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>MESSAGE DOWNGRADING OR DECLASSIFICATION DATA</SetFormatPositionName>
+   <SetFormatPositionNumber>18</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The DECL set provides declassification or downgrading instructions, if the message is classified.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>The DECL set is REQUIRED if Field 10 in the MSGID set lexicographically equals "CONFIDENTIAL" or "SECRET" or "TOP SECRET" or "RESTRICTED" or "NATO RESTRICTED" or "NATO CONFIDENTIAL" or "NATO SECRET" or "NATO SECRET-SAVATE" or "NATO SECRET-AVICULA" or "COSMIC TOP SECRET" or "COSMIC TOP SECRET-BOHEMIA" or "COSMIC TOP SECRET-BALK" or "COSMIC TOP SECRET ATOMAL" or "NATO SECRET ATOMAL" or "NATO CONFIDENTIAL ATOMAL", otherwise the DECL set is PROHIBITED.</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Conditional</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:MessageDowngradingOrDeclassificationDataType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="18" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element></xsd:sequence>
+<xsd:attribute name="mtfid" type="xsd:string" fixed="AIRLIFTREQ" /><xsd:attributeGroup ref="ism:SecurityAttributesGroup" /></xsd:complexType>
+</xsd:element></xsd:schema>

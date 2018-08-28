@@ -1,0 +1,2283 @@
+<?xml version="1.0" ?> 
+<xsd:schema targetNamespace="urn:mtf:mil:6040b:aknldg:B.1.01.14:elemental" xml:lang="en-US" xmlns="urn:mtf:mil:6040b:aknldg:B.1.01.14:elemental" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+ <xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd" /><xsd:complexType name="FreeTextType">
+ <xsd:simpleContent>
+  <xsd:extension base="FreeTextBaseType">
+   <xsd:attribute ref="xml:space" />
+  </xsd:extension>
+ </xsd:simpleContent>
+</xsd:complexType>
+<xsd:simpleType name="FreeTextBaseType">
+ <xsd:restriction base="xsd:string">
+  <xsd:pattern value="[A-Z0-9\.,\(\)\?\-!@#$%\^&amp;\*=_\+\[\]\{\}\\&quot;';&gt;&lt;~\|a-z\t\n]|([:A-Z0-9\.,\(\)\?\-!@#$%\^&amp;\*=_\+\[\]\{\}\\&quot;';&gt;&lt;~\|a-z\t\n][/:A-Z0-9&#x20;\.,\(\)\?\-!@#$%\^&amp;\*=_\+\[\]\{\}\\&quot;';&gt;&lt;~\|a-z\t\n]*[A-Z0-9\.,\(\)\?\-!@#$%\^&amp;\*=_\+\[\]\{\}\\&quot;';&gt;&lt;~\|a-z\t\n])" />
+ </xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="MessageTextFormatIdentifierType">
+ <xsd:annotation>
+  <xsd:documentation>The identifier of a message or report.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>MESSAGE TEXT FORMAT IDENTIFIER</FudName>
+   <FudExplanation>The identifier of a message or report.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>50</FieldFormatIndexReferenceNumber>
+   <FudNumber>9</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>2</MinimumLength>
+   <MaximumLength>20</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>Use the short title of the appropriate USMTF message.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>Use the short title of the appropriate USMTF message.
+</Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{2,20}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="2" />
+  <xsd:maxLength value="20" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{2,20}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="MessageSecurityClassificationExtendedType">
+ <xsd:annotation>
+  <xsd:documentation>The security classification of a message, unabbreviated.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>MESSAGE SECURITY CLASSIFICATION EXTENDED</FudName>
+   <FudExplanation>The security classification of a message, unabbreviated.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>105</FieldFormatIndexReferenceNumber>
+   <FudNumber>2</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>6</MinimumLength>
+   <MaximumLength>25</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Individual</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:enumeration value="UNCLASSIFIED">
+   <xsd:annotation>
+    <xsd:documentation>Unclassified. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Unclassified. </Explanation>
+     <DataCode>UNCLASSIFIED</DataCode>
+     <DataItem>UNCLASSIFIED</DataItem>
+     <DataItemSequenceNumber>1</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="CONFIDENTIAL">
+   <xsd:annotation>
+    <xsd:documentation>Confidential. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Confidential. </Explanation>
+     <DataCode>CONFIDENTIAL</DataCode>
+     <DataItem>CONFIDENTIAL</DataItem>
+     <DataItemSequenceNumber>2</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="SECRET">
+   <xsd:annotation>
+    <xsd:documentation>Secret. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Secret. </Explanation>
+     <DataCode>SECRET</DataCode>
+     <DataItem>SECRET</DataItem>
+     <DataItemSequenceNumber>3</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="TOP SECRET">
+   <xsd:annotation>
+    <xsd:documentation>Top Secret. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Top Secret. </Explanation>
+     <DataCode>TOP SECRET</DataCode>
+     <DataItem>TOP SECRET</DataItem>
+     <DataItemSequenceNumber>4</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="RESTRICTED">
+   <xsd:annotation>
+    <xsd:documentation>Restricted. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Restricted. </Explanation>
+     <DataCode>RESTRICTED</DataCode>
+     <DataItem>RESTRICTED</DataItem>
+     <DataItemSequenceNumber>5</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="NATO UNCLASSIFIED">
+   <xsd:annotation>
+    <xsd:documentation>NATO Unclassified. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>NATO Unclassified. </Explanation>
+     <DataCode>NATO UNCLASSIFIED</DataCode>
+     <DataItem>NATO UNCLASSIFIED</DataItem>
+     <DataItemSequenceNumber>6</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="NATO RESTRICTED">
+   <xsd:annotation>
+    <xsd:documentation>NATO Restricted. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>NATO Restricted. </Explanation>
+     <DataCode>NATO RESTRICTED</DataCode>
+     <DataItem>NATO RESTRICTED</DataItem>
+     <DataItemSequenceNumber>7</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="NATO CONFIDENTIAL">
+   <xsd:annotation>
+    <xsd:documentation>NATO Confidential. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>NATO Confidential. </Explanation>
+     <DataCode>NATO CONFIDENTIAL</DataCode>
+     <DataItem>NATO CONFIDENTIAL</DataItem>
+     <DataItemSequenceNumber>8</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="NATO SECRET">
+   <xsd:annotation>
+    <xsd:documentation>NATO Secret. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>NATO Secret. </Explanation>
+     <DataCode>NATO SECRET</DataCode>
+     <DataItem>NATO SECRET</DataItem>
+     <DataItemSequenceNumber>9</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="NATO SECRET-SAVATE">
+   <xsd:annotation>
+    <xsd:documentation>NATO Secret-Savate. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>NATO Secret-Savate. </Explanation>
+     <DataCode>NATO SECRET-SAVATE</DataCode>
+     <DataItem>NATO SECRET-SAVATE</DataItem>
+     <DataItemSequenceNumber>10</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="NATO SECRET-AVICULA">
+   <xsd:annotation>
+    <xsd:documentation>NATO Secret-Avicula. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>NATO Secret-Avicula. </Explanation>
+     <DataCode>NATO SECRET-AVICULA</DataCode>
+     <DataItem>NATO SECRET-AVICULA</DataItem>
+     <DataItemSequenceNumber>11</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="COSMIC TOP SECRET">
+   <xsd:annotation>
+    <xsd:documentation>Cosmic Top Secret. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Cosmic Top Secret. </Explanation>
+     <DataCode>COSMIC TOP SECRET</DataCode>
+     <DataItem>COSMIC TOP SECRET</DataItem>
+     <DataItemSequenceNumber>12</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="COSMIC TOP SECRET-BOHEMIA">
+   <xsd:annotation>
+    <xsd:documentation>Cosmic Top Secret-Bohemia. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Cosmic Top Secret-Bohemia. </Explanation>
+     <DataCode>COSMIC TOP SECRET-BOHEMIA</DataCode>
+     <DataItem>COSMIC TOP SECRET-BOHEMIA</DataItem>
+     <DataItemSequenceNumber>13</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="COSMIC TOP SECRET-BALK">
+   <xsd:annotation>
+    <xsd:documentation>Cosmic Top Secret-Balk. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Cosmic Top Secret-Balk. </Explanation>
+     <DataCode>COSMIC TOP SECRET-BALK</DataCode>
+     <DataItem>COSMIC TOP SECRET-BALK</DataItem>
+     <DataItemSequenceNumber>14</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="COSMIC TOP SECRET ATOMAL">
+   <xsd:annotation>
+    <xsd:documentation>Cosmic Top Secret Atomal. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Cosmic Top Secret Atomal. </Explanation>
+     <DataCode>COSMIC TOP SECRET ATOMAL</DataCode>
+     <DataItem>COSMIC TOP SECRET ATOMAL</DataItem>
+     <DataItemSequenceNumber>15</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="NATO SECRET ATOMAL">
+   <xsd:annotation>
+    <xsd:documentation>NATO Secret Atomal. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>NATO Secret Atomal. </Explanation>
+     <DataCode>NATO SECRET ATOMAL</DataCode>
+     <DataItem>NATO SECRET ATOMAL</DataItem>
+     <DataItemSequenceNumber>16</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="NATO CONFIDENTIAL ATOMAL">
+   <xsd:annotation>
+    <xsd:documentation>NATO Confidential Atomal. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>NATO Confidential Atomal. </Explanation>
+     <DataCode>NATO CONFIDENTIAL ATOMAL</DataCode>
+     <DataItem>NATO CONFIDENTIAL ATOMAL</DataItem>
+     <DataItemSequenceNumber>17</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="MessageSecurityPolicyType">
+ <xsd:annotation>
+  <xsd:documentation>The national government or international organization owner(s) and/or producer(s) of a resource.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>MESSAGE SECURITY POLICY</FudName>
+   <FudExplanation>The national government or international organization owner(s) and/or producer(s) of a resource.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>105</FieldFormatIndexReferenceNumber>
+   <FudNumber>3</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>50</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>ISO 3166-1 Trigraph(s) of the owner or producer country(ies) and/or CAPCO-specified Tetragraphs of international organizations. Either (a) a single Trigraph or Tetragraph or (b) a space-delimited list of Trigraphs followed by Tetragraphs. Trigraphs must be in alphabetical order.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>ISO 3166-1 Trigraph(s) of the owner or producer country(ies) and/or CAPCO-specified Tetragraphs of international organizations. Either (a) a single Trigraph or Tetragraph or (b) a space-delimited list of Trigraphs followed by Tetragraphs. Trigraphs must be in alphabetical order.
+</Explanation>
+    <MtfRegularExpression>[A-Z&#x20;]{1,50}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="50" />
+  <xsd:pattern value="[A-Z&#x20;]{1,50}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="MessageSecurityCategoryType">
+ <xsd:annotation>
+  <xsd:documentation>The country or countries and/or international organization(s) to which classified information may be released based on the determination of an originator in accordance with established foreign disclosure procedures.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>MESSAGE SECURITY CATEGORY</FudName>
+   <FudExplanation>The country or countries and/or international organization(s) to which classified information may be released based on the determination of an originator in accordance with established foreign disclosure procedures.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>105</FieldFormatIndexReferenceNumber>
+   <FudNumber>4</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>50</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>ISO 3166-1 Trigraphic codes of countries to which the associated content can be released. Include "USA" in all instances. Use a space-delimited list with "USA" first, followed by the other Trigraph(s) in alphabetical order.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>ISO 3166-1 Trigraphic codes of countries to which the associated content can be released. Include "USA" in all instances. Use a space-delimited list with "USA" first, followed by the other Trigraph(s) in alphabetical order.
+</Explanation>
+    <MtfRegularExpression>[A-Z&#x20;]{1,50}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="50" />
+  <xsd:pattern value="[A-Z&#x20;]{1,50}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="MessageSecurityClassificationOtherType">
+ <xsd:annotation>
+  <xsd:documentation>The security classification that applies to the information contained in a message text format.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>MESSAGE SECURITY CLASSIFICATION, OTHER</FudName>
+   <FudExplanation>The security classification that applies to the information contained in a message text format.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>105</FieldFormatIndexReferenceNumber>
+   <FudNumber>5</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>50</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation />
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation></Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,50}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="50" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,50}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="OriginatorType">
+ <xsd:annotation>
+  <xsd:documentation>The identifier of the originator of the message.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>ORIGINATOR</FudName>
+   <FudExplanation>The identifier of the originator of the message.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>146</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>30</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>Description, literal (e.g., II MAF; CTF77; I CORPS; 7TH AF; or CTG76.05).
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>Description, literal (e.g., II MAF; CTF77; I CORPS; 7TH AF; or CTG76.05).
+</Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,30}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="30" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,30}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="PlanOriginatorType">
+ <xsd:annotation>
+  <xsd:documentation>The identifier of the originator of a plan.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>PLAN ORIGINATOR</FudName>
+   <FudExplanation>The identifier of the originator of a plan.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>146</FieldFormatIndexReferenceNumber>
+   <FudNumber>11</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>3</MinimumLength>
+   <MaximumLength>20</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>Description, literal (e.g., II MAF; CTF77; I CORPS; 7TH AF; or CTG76.05).
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>Description, literal (e.g., II MAF; CTF77; I CORPS; 7TH AF; or CTG76.05).
+</Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{3,20}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="3" />
+  <xsd:maxLength value="20" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{3,20}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="MessageSerialNumberType">
+ <xsd:annotation>
+  <xsd:documentation>The serial number assigned to a specific message. The originating command may develop the message serial number by any method.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>MESSAGE SERIAL NUMBER</FudName>
+   <FudExplanation>The serial number assigned to a specific message. The originating command may develop the message serial number by any method.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>147</FieldFormatIndexReferenceNumber>
+   <FudNumber>5</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>7</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>No lower case.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>No lower case.
+</Explanation>
+    <MtfRegularExpression>[\-A-Z0-9&#x20;\.,\(\)&amp;\?!@#$%\^\*=_\+\[\]\{\}\\&quot;';>&lt;~`\|]{1,7}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="7" />
+  <xsd:pattern value="[\-A-Z0-9&#x20;\.,\(\)&amp;\?!@#$%\^\*=_\+\[\]\{\}\\&quot;';>&lt;~`\|]{1,7}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="AlphamonthYearType">
+ <xsd:annotation>
+  <xsd:documentation>A point in time expressed as month and year, as defined by the Gregorian Calendar. The first element is the 3-character abbreviated month name, allowing a choice of JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC. The second element is the 4-digit year, in values from 0000 to 9999.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>ALPHAMONTH-YEAR</FudName>
+   <FudExplanation>A point in time expressed as month and year, as defined by the Gregorian Calendar. The first element is the 3-character abbreviated month name, allowing a choice of JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC. The second element is the 4-digit year, in values from 0000 to 9999.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>176</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.02.00</VersionIndicator>
+   <MinimumLength>7</MinimumLength>
+   <MaximumLength>7</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>The first element is a 3-letter abbreviated month name, allowing a choice of JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC. The second element is a 4-digit number representing the year, in values from 0000 to 9999.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>The first element is a 3-letter abbreviated month name, allowing a choice of JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC. The second element is a 4-digit number representing the year, in values from 0000 to 9999.
+</Explanation>
+    <MtfRegularExpression>(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[0-9]{4}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:length value="7" />
+  <xsd:pattern value="(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[0-9]{4}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="StandardOfMessageTextFormatType">
+ <xsd:annotation>
+  <xsd:documentation>The military standard that contains the message format rules.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>STANDARD OF MESSAGE TEXT FORMAT</FudName>
+   <FudExplanation>The military standard that contains the message format rules.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>180</FieldFormatIndexReferenceNumber>
+   <FudNumber>2</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>20</MinimumLength>
+   <MaximumLength>20</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Individual</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:enumeration value="MIL-STD-6040(SERIES)">
+   <xsd:annotation>
+    <xsd:documentation>MIL-STD-6040(Series).</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>MIL-STD-6040(Series).</Explanation>
+     <DataCode>MIL-STD-6040(SERIES)</DataCode>
+     <DataItem>MIL-STD-6040(SERIES)</DataItem>
+     <DataItemSequenceNumber>2</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="VersionOfMessageTextFormatType">
+ <xsd:annotation>
+  <xsd:documentation>The version of the message text format. The message version consists of four parts: Part 1 is the edition letter of MIL-STD-6040(SERIES), e.g., A, B, C through Z, Part 2 is the change number of the edition (0-5), Part 3 is the major change for the message, e.g., 01-99, and Part 4 is the minor change for the message, e.g., 00-99.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>VERSION OF MESSAGE TEXT FORMAT</FudName>
+   <FudExplanation>The version of the message text format. The message version consists of four parts: Part 1 is the edition letter of MIL-STD-6040(SERIES), e.g., A, B, C through Z, Part 2 is the change number of the edition (0-5), Part 3 is the major change for the message, e.g., 01-99, and Part 4 is the minor change for the message, e.g., 00-99.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>180</FieldFormatIndexReferenceNumber>
+   <FudNumber>3</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>9</MinimumLength>
+   <MaximumLength>9</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation />
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation></Explanation>
+    <MtfRegularExpression>[A-Z]\.[0-5]\.[0-9]{2}\.[0-9]{2}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:length value="9" />
+  <xsd:pattern value="[A-Z]\.[0-5]\.[0-9]{2}\.[0-9]{2}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:complexType name="BlankSpaceCharacterType">
+ <xsd:annotation>
+  <xsd:documentation>A blank space character that is used to separate elements within a data chain, or to mark the beginning or end of a unit of data.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>BLANK SPACE CHARACTER</FudName>
+   <FudExplanation>A blank space character that is used to separate elements within a data chain, or to mark the beginning or end of a unit of data.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>213</FieldFormatIndexReferenceNumber>
+   <FudNumber>4</FudNumber>
+   <VersionIndicator>B.1.01.02</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>1</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:simpleContent>
+  <xsd:extension base="BlankSpaceCharacterBaseType">
+   <xsd:attribute ref="xml:space" />
+  </xsd:extension>
+ </xsd:simpleContent>
+</xsd:complexType>
+<xsd:simpleType name="BlankSpaceCharacterBaseType">
+ <xsd:annotation>
+  <xsd:documentation>A blank space character that is used to separate elements within a data chain, or to mark the beginning or end of a unit of data.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>BLANK SPACE CHARACTER</FudName>
+   <FudExplanation>A blank space character that is used to separate elements within a data chain, or to mark the beginning or end of a unit of data.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>213</FieldFormatIndexReferenceNumber>
+   <FudNumber>4</FudNumber>
+   <VersionIndicator>B.1.01.02</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>1</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>A mandatory space is required and a blank will appear in the position.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>A mandatory space is required and a blank will appear in the position.
+</Explanation>
+    <MtfRegularExpression>[&#x20;]{1,1}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:length value="1" />
+  <xsd:pattern value="[&#x20;]{1,1}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="SicCodeType">
+ <xsd:annotation>
+  <xsd:documentation>The NATO Subject Indicator System (NASIS) alphanumeric code or national equivalents, which indicates the subject matter contained in a particular message.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>SIC CODE</FudName>
+   <FudExplanation>The NATO Subject Indicator System (NASIS) alphanumeric code or national equivalents, which indicates the subject matter contained in a particular message.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>332</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>3</MinimumLength>
+   <MaximumLength>3</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>For further U.S. implementation guidance, see Repository of USMTF Program Items Document, items 96 and 358.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>For further U.S. implementation guidance, see Repository of USMTF Program Items Document, items 96 and 358.
+</Explanation>
+    <MtfRegularExpression>[A-Z0-9]{3,3}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:length value="3" />
+  <xsd:pattern value="[A-Z0-9]{3,3}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="ExerciseNicknameType">
+ <xsd:annotation>
+  <xsd:documentation>The unique code name or nickname assigned to a joint exercise or plan or to designate exercise message traffic.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>EXERCISE NICKNAME</FudName>
+   <FudExplanation>The unique code name or nickname assigned to a joint exercise or plan or to designate exercise message traffic.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>335</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>56</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 204.</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>Code name, nickname, or designation assigned by the appropriate authority. For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 204.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>Code name, nickname, or designation assigned by the appropriate authority. For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 204.
+</Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,56}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="56" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,56}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="ExerciseAdditionalNicknameType">
+ <xsd:annotation>
+  <xsd:documentation>An additional caveat which further identifies the exercise or modifies the exercise nickname.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>EXERCISE ADDITIONAL NICKNAME</FudName>
+   <FudExplanation>An additional caveat which further identifies the exercise or modifies the exercise nickname.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>335</FieldFormatIndexReferenceNumber>
+   <FudNumber>2</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>16</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 204.</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>Additional nickname assigned by appropriate authority. For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 204.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>Additional nickname assigned by appropriate authority. For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 204.
+</Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,16}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="16" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,16}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="ExerciseAdditionalIdentifierType">
+ <xsd:annotation>
+  <xsd:documentation>An additional caveat which further identifies the exercise or modifies the exercise nickname using discrete codes.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>EXERCISE ADDITIONAL IDENTIFIER</FudName>
+   <FudExplanation>An additional caveat which further identifies the exercise or modifies the exercise nickname using discrete codes.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>335</FieldFormatIndexReferenceNumber>
+   <FudNumber>7</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>4</MinimumLength>
+   <MaximumLength>16</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Individual</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:enumeration value="CONTROL">
+   <xsd:annotation>
+    <xsd:documentation>Message Addressed to Players to Control the Exercise. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Message Addressed to Players to Control the Exercise. </Explanation>
+     <DataCode>CONTROL</DataCode>
+     <DataItem>MESSAGE ADDRESSED TO PLAYERS TO CONTROL THE EXERCISE</DataItem>
+     <DataItemSequenceNumber>1</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="UMPIRE EYES ONLY">
+   <xsd:annotation>
+    <xsd:documentation>Message Addressed to Umpires Only. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Message Addressed to Umpires Only. </Explanation>
+     <DataCode>UMPIRE EYES ONLY</DataCode>
+     <DataItem>MESSAGE ADDRESSED TO UMPIRES ONLY</DataItem>
+     <DataItemSequenceNumber>2</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="BLUE">
+   <xsd:annotation>
+    <xsd:documentation>Message Between Blue Players. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Message Between Blue Players. </Explanation>
+     <DataCode>BLUE</DataCode>
+     <DataItem>MESSAGE BETWEEN BLUE PLAYERS</DataItem>
+     <DataItemSequenceNumber>3</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="ORANGE">
+   <xsd:annotation>
+    <xsd:documentation>Message Between Orange Players. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Message Between Orange Players. </Explanation>
+     <DataCode>ORANGE</DataCode>
+     <DataItem>MESSAGE BETWEEN ORANGE PLAYERS</DataItem>
+     <DataItemSequenceNumber>4</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="DISTAFF">
+   <xsd:annotation>
+    <xsd:documentation>Message for DISTAFF or DICONSTAFF Only. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Message for DISTAFF or DICONSTAFF Only. </Explanation>
+     <DataCode>DISTAFF</DataCode>
+     <DataItem>MESSAGE FOR DISTAFF OR DICONSTAFF ONLY</DataItem>
+     <DataItemSequenceNumber>5</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="DRILL">
+   <xsd:annotation>
+    <xsd:documentation>Message for Test or Practice Not Related to the Exercise. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Message for Test or Practice Not Related to the Exercise. </Explanation>
+     <DataCode>DRILL</DataCode>
+     <DataItem>MESSAGE FOR TEST OR PRACTICE NOT RELATED TO THE EXERCISE</DataItem>
+     <DataItemSequenceNumber>6</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="NODUF">
+   <xsd:annotation>
+    <xsd:documentation>Message Interception Not for Use in Direction Finding. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Message Interception Not for Use in Direction Finding. </Explanation>
+     <DataCode>NODUF</DataCode>
+     <DataItem>MESSAGE INTERCEPTION NOT FOR USE IN DIRECTION FINDING</DataItem>
+     <DataItemSequenceNumber>7</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="NO PLAY">
+   <xsd:annotation>
+    <xsd:documentation>Message Not Part of Play But Affecting the Exercise. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Message Not Part of Play But Affecting the Exercise. </Explanation>
+     <DataCode>NO PLAY</DataCode>
+     <DataItem>MESSAGE NOT PART OF PLAY BUT AFFECTING THE EXERCISE</DataItem>
+     <DataItemSequenceNumber>8</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="PURPLE">
+   <xsd:annotation>
+    <xsd:documentation>Message Originated By a Commander Assigned a Purple Role. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Message Originated By a Commander Assigned a Purple Role. </Explanation>
+     <DataCode>PURPLE</DataCode>
+     <DataItem>MESSAGE ORIGINATED BY A COMMANDER ASSIGNED A PURPLE ROLE</DataItem>
+     <DataItemSequenceNumber>9</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="UMPIRE">
+   <xsd:annotation>
+    <xsd:documentation>Message Originated By an Umpire. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Message Originated By an Umpire. </Explanation>
+     <DataCode>UMPIRE</DataCode>
+     <DataItem>MESSAGE ORIGINATED BY AN UMPIRE</DataItem>
+     <DataItemSequenceNumber>10</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="OperationCodewordType">
+ <xsd:annotation>
+  <xsd:documentation>The unique operation name, nickname or codeword that identifies a specific operation.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>OPERATION CODEWORD</FudName>
+   <FudExplanation>The unique operation name, nickname or codeword that identifies a specific operation.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>336</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>32</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation />
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation></Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,32}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="32" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,32}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="MilitaryCommandAuthorityType">
+ <xsd:annotation>
+  <xsd:documentation>The official identifier of a military command or unit authorized to issue commands or delegate authority.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>MILITARY COMMAND AUTHORITY</FudName>
+   <FudExplanation>The official identifier of a military command or unit authorized to issue commands or delegate authority.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>483</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>50</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation />
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation></Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,50}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="50" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,50}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="SerialNumberOfQualifierType">
+ <xsd:annotation>
+  <xsd:documentation>A number assigned serially to identify the sequential version of a message qualifier for a basic message.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>SERIAL NUMBER OF QUALIFIER</FudName>
+   <FudExplanation>A number assigned serially to identify the sequential version of a message qualifier for a basic message.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>487</FieldFormatIndexReferenceNumber>
+   <FudNumber>17</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>3</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>Numeric</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Range</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:integer">
+  <xsd:annotation>
+   <xsd:documentation />
+   <xsd:appinfo>
+    <DataType>Integer</DataType>
+    <Explanation></Explanation>
+    <MinimumInclusiveValue>1</MinimumInclusiveValue>
+    <MaximumInclusiveValue>999</MaximumInclusiveValue>
+    <LengthVariable />
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minInclusive value="1" />
+  <xsd:maxInclusive value="999" />
+  <xsd:pattern value="[0-9]{1,3}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="FilingNumberType">
+ <xsd:annotation>
+  <xsd:documentation>The filing number assigned to a document.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>FILING NUMBER</FudName>
+   <FudExplanation>The filing number assigned to a document.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>487</FieldFormatIndexReferenceNumber>
+   <FudNumber>29</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>10</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>No lower case.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>No lower case.
+</Explanation>
+    <MtfRegularExpression>[\-A-Z0-9&#x20;\.,\(\)&amp;\?!@#$%\^\*=_\+\[\]\{\}\\&quot;';>&lt;~`\|]{1,10}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="10" />
+  <xsd:pattern value="[\-A-Z0-9&#x20;\.,\(\)&amp;\?!@#$%\^\*=_\+\[\]\{\}\\&quot;';>&lt;~`\|]{1,10}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="OperationPlanNumberType">
+ <xsd:annotation>
+  <xsd:documentation>The identifier assigned to an operations plan.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>OPERATION PLAN NUMBER</FudName>
+   <FudExplanation>The identifier assigned to an operations plan.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>487</FieldFormatIndexReferenceNumber>
+   <FudNumber>168</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>15</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation />
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation></Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,15}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="15" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,15}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="ReferenceSerialNumberType">
+ <xsd:annotation>
+  <xsd:documentation>The serial number assigned to a reference.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>REFERENCE SERIAL NUMBER</FudName>
+   <FudExplanation>The serial number assigned to a reference.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>487</FieldFormatIndexReferenceNumber>
+   <FudNumber>219</FudNumber>
+   <VersionIndicator>B.1.01.02</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>30</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>No lower case.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>No lower case.
+</Explanation>
+    <MtfRegularExpression>[\-A-Z0-9&#x20;\.,\(\)&amp;\?!@#$%\^\*=_\+\[\]\{\}\\&quot;';>&lt;~`\|]{1,30}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="30" />
+  <xsd:pattern value="[\-A-Z0-9&#x20;\.,\(\)&amp;\?!@#$%\^\*=_\+\[\]\{\}\\&quot;';>&lt;~`\|]{1,30}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="QualifierType">
+ <xsd:annotation>
+  <xsd:documentation>A qualifier which caveats a message status.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>QUALIFIER</FudName>
+   <FudExplanation>A qualifier which caveats a message status.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>568</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <MinimumLength>3</MinimumLength>
+   <MaximumLength>3</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Individual</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:enumeration value="AMP">
+   <xsd:annotation>
+    <xsd:documentation>Amplification. Amplifies a previously sent message.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Amplification. Amplifies a previously sent message.</Explanation>
+     <DataCode>AMP</DataCode>
+     <DataItem>AMPLIFICATION</DataItem>
+     <DataItemSequenceNumber>1</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="BLK">
+   <xsd:annotation>
+    <xsd:documentation>Block Time Period. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Block Time Period. </Explanation>
+     <DataCode>BLK</DataCode>
+     <DataItem>BLOCK TIME PERIOD</DataItem>
+     <DataItemSequenceNumber>2</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="CHG">
+   <xsd:annotation>
+    <xsd:documentation>Change. Directs a sequential change to a previously sent message.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Change. Directs a sequential change to a previously sent message.</Explanation>
+     <DataCode>CHG</DataCode>
+     <DataItem>CHANGE</DataItem>
+     <DataItemSequenceNumber>3</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="DEV">
+   <xsd:annotation>
+    <xsd:documentation>Deviation. Indicates a deviation from a previously sent message.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Deviation. Indicates a deviation from a previously sent message.</Explanation>
+     <DataCode>DEV</DataCode>
+     <DataItem>DEVIATION</DataItem>
+     <DataItemSequenceNumber>4</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="FIN">
+   <xsd:annotation>
+    <xsd:documentation>Final. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Final. </Explanation>
+     <DataCode>FIN</DataCode>
+     <DataItem>FINAL</DataItem>
+     <DataItemSequenceNumber>5</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="FUP">
+   <xsd:annotation>
+    <xsd:documentation>Follow-Up. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Follow-Up. </Explanation>
+     <DataCode>FUP</DataCode>
+     <DataItem>FOLLOW-UP</DataItem>
+     <DataItemSequenceNumber>6</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="INI">
+   <xsd:annotation>
+    <xsd:documentation>Initial. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Initial. </Explanation>
+     <DataCode>INI</DataCode>
+     <DataItem>INITIAL</DataItem>
+     <DataItemSequenceNumber>7</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="PER">
+   <xsd:annotation>
+    <xsd:documentation>Permanent. Signifies a message that has a long time standing.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Permanent. Signifies a message that has a long time standing.</Explanation>
+     <DataCode>PER</DataCode>
+     <DataItem>PERMANENT</DataItem>
+     <DataItemSequenceNumber>8</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="REQ">
+   <xsd:annotation>
+    <xsd:documentation>Request. Used to request a particular message from another Commander.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Request. Used to request a particular message from another Commander.</Explanation>
+     <DataCode>REQ</DataCode>
+     <DataItem>REQUEST</DataItem>
+     <DataItemSequenceNumber>9</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="UPD">
+   <xsd:annotation>
+    <xsd:documentation>Update. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Update. </Explanation>
+     <DataCode>UPD</DataCode>
+     <DataItem>UPDATE</DataItem>
+     <DataItemSequenceNumber>10</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="MonthNameType">
+ <xsd:annotation>
+  <xsd:documentation>The name of a specific month which is one of the twelve parts into which a year is divided as defined by the Gregorian calendar.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>MONTH NAME</FudName>
+   <FudExplanation>The name of a specific month which is one of the twelve parts into which a year is divided as defined by the Gregorian calendar.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>580</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>3</MinimumLength>
+   <MaximumLength>3</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Individual</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:enumeration value="JAN">
+   <xsd:annotation>
+    <xsd:documentation>January. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>January. </Explanation>
+     <DataCode>JAN</DataCode>
+     <DataItem>JANUARY</DataItem>
+     <DataItemSequenceNumber>1</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="FEB">
+   <xsd:annotation>
+    <xsd:documentation>February. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>February. </Explanation>
+     <DataCode>FEB</DataCode>
+     <DataItem>FEBRUARY</DataItem>
+     <DataItemSequenceNumber>2</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="MAR">
+   <xsd:annotation>
+    <xsd:documentation>March. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>March. </Explanation>
+     <DataCode>MAR</DataCode>
+     <DataItem>MARCH</DataItem>
+     <DataItemSequenceNumber>3</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="APR">
+   <xsd:annotation>
+    <xsd:documentation>April. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>April. </Explanation>
+     <DataCode>APR</DataCode>
+     <DataItem>APRIL</DataItem>
+     <DataItemSequenceNumber>4</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="MAY">
+   <xsd:annotation>
+    <xsd:documentation>May. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>May. </Explanation>
+     <DataCode>MAY</DataCode>
+     <DataItem>MAY</DataItem>
+     <DataItemSequenceNumber>5</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="JUN">
+   <xsd:annotation>
+    <xsd:documentation>June. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>June. </Explanation>
+     <DataCode>JUN</DataCode>
+     <DataItem>JUNE</DataItem>
+     <DataItemSequenceNumber>6</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="JUL">
+   <xsd:annotation>
+    <xsd:documentation>July. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>July. </Explanation>
+     <DataCode>JUL</DataCode>
+     <DataItem>JULY</DataItem>
+     <DataItemSequenceNumber>7</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="AUG">
+   <xsd:annotation>
+    <xsd:documentation>August. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>August. </Explanation>
+     <DataCode>AUG</DataCode>
+     <DataItem>AUGUST</DataItem>
+     <DataItemSequenceNumber>8</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="SEP">
+   <xsd:annotation>
+    <xsd:documentation>September. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>September. </Explanation>
+     <DataCode>SEP</DataCode>
+     <DataItem>SEPTEMBER</DataItem>
+     <DataItemSequenceNumber>9</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="OCT">
+   <xsd:annotation>
+    <xsd:documentation>October. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>October. </Explanation>
+     <DataCode>OCT</DataCode>
+     <DataItem>OCTOBER</DataItem>
+     <DataItemSequenceNumber>10</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="NOV">
+   <xsd:annotation>
+    <xsd:documentation>November. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>November. </Explanation>
+     <DataCode>NOV</DataCode>
+     <DataItem>NOVEMBER</DataItem>
+     <DataItemSequenceNumber>11</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="DEC">
+   <xsd:annotation>
+    <xsd:documentation>December. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>December. </Explanation>
+     <DataCode>DEC</DataCode>
+     <DataItem>DECEMBER</DataItem>
+     <DataItemSequenceNumber>12</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="OptionNicknameType">
+ <xsd:annotation>
+  <xsd:documentation>The nickname of an option or alternative of an operational plan or order.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>OPTION NICKNAME</FudName>
+   <FudExplanation>The nickname of an option or alternative of an operational plan or order.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>585</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>23</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation />
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation></Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,23}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="23" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,23}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="SecondaryOptionNicknameType">
+ <xsd:annotation>
+  <xsd:documentation>The secondary nickname of an option or alternative of an operational plan or order.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>SECONDARY OPTION NICKNAME</FudName>
+   <FudExplanation>The secondary nickname of an option or alternative of an operational plan or order.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>585</FieldFormatIndexReferenceNumber>
+   <FudNumber>2</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>23</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation />
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation></Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,23}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="23" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,23}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="SerialIdentifierType">
+ <xsd:annotation>
+  <xsd:documentation>An alphabetic identifier that distinguishes an individual communication.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>SERIAL IDENTIFIER</FudName>
+   <FudExplanation>An alphabetic identifier that distinguishes an individual communication.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>636</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>2</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Range</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation />
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation />
+    <MtfRegularExpression>[A-Z]{1,2}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="2" />
+  <xsd:pattern value="[A-Z]{1,2}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="SerialLetterType">
+ <xsd:annotation>
+  <xsd:documentation>An alphabetic character identifying an individual communication.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>SERIAL LETTER</FudName>
+   <FudExplanation>An alphabetic character identifying an individual communication.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>636</FieldFormatIndexReferenceNumber>
+   <FudNumber>2</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>1</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Range</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation />
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation />
+    <MtfRegularExpression>[A-Z]{1,1}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:length value="1" />
+  <xsd:pattern value="[A-Z]{1,1}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="CommunicationTypeType">
+ <xsd:annotation>
+  <xsd:documentation>The kind of communication transmitted, received, or referred to.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>COMMUNICATION TYPE</FudName>
+   <FudExplanation>The kind of communication transmitted, received, or referred to.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>646</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.02</VersionIndicator>
+   <MinimumLength>3</MinimumLength>
+   <MaximumLength>3</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Individual</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:enumeration value="CHT">
+   <xsd:annotation>
+    <xsd:documentation>Chat.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Chat.</Explanation>
+     <DataCode>CHT</DataCode>
+     <DataItem>CHAT</DataItem>
+     <DataItemSequenceNumber>1</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="CON">
+   <xsd:annotation>
+    <xsd:documentation>Conference/Meeting.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Conference/Meeting.</Explanation>
+     <DataCode>CON</DataCode>
+     <DataItem>CONFERENCE/MEETING</DataItem>
+     <DataItemSequenceNumber>2</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="DOC">
+   <xsd:annotation>
+    <xsd:documentation>Document.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Document.</Explanation>
+     <DataCode>DOC</DataCode>
+     <DataItem>DOCUMENT</DataItem>
+     <DataItemSequenceNumber>3</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="EML">
+   <xsd:annotation>
+    <xsd:documentation>Electronic Mail.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Electronic Mail.</Explanation>
+     <DataCode>EML</DataCode>
+     <DataItem>ELECTRONIC MAIL</DataItem>
+     <DataItemSequenceNumber>4</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="LTR">
+   <xsd:annotation>
+    <xsd:documentation>Letter/Memorandum.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Letter/Memorandum.</Explanation>
+     <DataCode>LTR</DataCode>
+     <DataItem>LETTER/MEMORANDUM</DataItem>
+     <DataItemSequenceNumber>5</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="MSG">
+   <xsd:annotation>
+    <xsd:documentation>Message (Not Formatted).</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Message (Not Formatted).</Explanation>
+     <DataCode>MSG</DataCode>
+     <DataItem>MESSAGE (NOT FORMATTED)</DataItem>
+     <DataItemSequenceNumber>6</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="TEL">
+   <xsd:annotation>
+    <xsd:documentation>Telephone.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Telephone.</Explanation>
+     <DataCode>TEL</DataCode>
+     <DataItem>TELEPHONE</DataItem>
+     <DataItemSequenceNumber>7</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="VTC">
+   <xsd:annotation>
+    <xsd:documentation>Video Teleconference.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Video Teleconference.</Explanation>
+     <DataCode>VTC</DataCode>
+     <DataItem>VIDEO TELECONFERENCE</DataItem>
+     <DataItemSequenceNumber>8</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="DateTimeGroupType">
+ <xsd:annotation>
+  <xsd:documentation>A point in time expressed as date-time group (DTG). Expressed as six digits with a time zone suffix and the standardized abbreviation for the month and a 4-digit year. The first pair of the six digits represents the day; the  hour; and the minutes. The time zone suffix can be one of 35 time zones, to include 10 half-hour increment time zones based upon the local standard time, Greenwich, England (UTC).</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>DATE-TIME GROUP</FudName>
+   <FudExplanation>A point in time expressed as date-time group (DTG). Expressed as six digits with a time zone suffix and the standardized abbreviation for the month and a 4-digit year. The first pair of the six digits represents the day; the  hour; and the minutes. The time zone suffix can be one of 35 time zones, to include 10 half-hour increment time zones based upon the local standard time, Greenwich, England (UTC).</FudExplanation>
+   <FieldFormatIndexReferenceNumber>647</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.02.00</VersionIndicator>
+   <MinimumLength>14</MinimumLength>
+   <MaximumLength>14</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>The first element is a 2-digit number representing the day, in values from 01 to 31. The second element is a 2-digit number representing the hour, in values from 00 to 23. The third element is a 2-digit number representing the minute, in values from 00 to 59. The fourth element is a single alphanumeric character representing one of the 35 time zones, to include 10 half-hour increment time zones based upon the local standard time, Greenwich, England (UTC). The fifth element is a 3-letter abbreviated month name, allowing a choice of JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC. The sixth element is a 4-digit number representing the year, in values from 0000 to 9999. The time zone suffix can be one of 35 time zones, to include 10 half-hour increment time zones based upon the local standard time, Greenwich, England (UTC). The time zones UTC Plus 1 Hour through UTC Plus 12 Hours are represented by the letters A through M, respectively, omitting the letter J; the time zones UTC Minus 1 Hour through UTC Minus 12 Hours are represented by the letters N through Y, respectively; time zone UTC is represented by the letter Z; the half-hour increment time zones UTC Plus 3:30 Hours through UTC Plus 6:30 Hours are represented by are represented the numbers 0 through 3, respectively; UTC Plus 9:30 Hours through UTC Plus 11:30 Hours are represented by the numbers 4 through 6, respectively; UTC Minus 3:30 Hours is represented by the number 7, and UTC Minus 8:30 Hours and UTC Minus 9:30 Hours are represented by the numbers 8 and 9, respectively.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>The first element is a 2-digit number representing the day, in values from 01 to 31. The second element is a 2-digit number representing the hour, in values from 00 to 23. The third element is a 2-digit number representing the minute, in values from 00 to 59. The fourth element is a single alphanumeric character representing one of the 35 time zones, to include 10 half-hour increment time zones based upon the local standard time, Greenwich, England (UTC). The fifth element is a 3-letter abbreviated month name, allowing a choice of JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC. The sixth element is a 4-digit number representing the year, in values from 0000 to 9999. The time zone suffix can be one of 35 time zones, to include 10 half-hour increment time zones based upon the local standard time, Greenwich, England (UTC). The time zones UTC Plus 1 Hour through UTC Plus 12 Hours are represented by the letters A through M, respectively, omitting the letter J; the time zones UTC Minus 1 Hour through UTC Minus 12 Hours are represented by the letters N through Y, respectively; time zone UTC is represented by the letter Z; the half-hour increment time zones UTC Plus 3:30 Hours through UTC Plus 6:30 Hours are represented by are represented the numbers 0 through 3, respectively; UTC Plus 9:30 Hours through UTC Plus 11:30 Hours are represented by the numbers 4 through 6, respectively; UTC Minus 3:30 Hours is represented by the number 7, and UTC Minus 8:30 Hours and UTC Minus 9:30 Hours are represented by the numbers 8 and 9, respectively.
+</Explanation>
+    <MtfRegularExpression>(0[1-9]|(1|2)[0-9]|3(0|1))((0|1)[0-9]|2[0-3])[0-5][0-9][A-IK-Z0-9](JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[0-9]{4}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:length value="14" />
+  <xsd:pattern value="(0[1-9]|(1|2)[0-9]|3(0|1))((0|1)[0-9]|2[0-3])[0-5][0-9][A-IK-Z0-9](JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[0-9]{4}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="DateDdmmmyyyyType">
+ <xsd:annotation>
+  <xsd:documentation>A point in time expressed as day, month, year, as defined by the Gregorian Calendar. The first element is a number representing the day, in values from 01 to 31. The second element is the 3-character abbreviated month name, allowing a choice of JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC. The third element is the 4-digit year, in values from 0000 to 9999.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>DATE, DDMMMYYYY</FudName>
+   <FudExplanation>A point in time expressed as day, month, year, as defined by the Gregorian Calendar. The first element is a number representing the day, in values from 01 to 31. The second element is the 3-character abbreviated month name, allowing a choice of JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC. The third element is the 4-digit year, in values from 0000 to 9999.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>649</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.02.00</VersionIndicator>
+   <MinimumLength>9</MinimumLength>
+   <MaximumLength>9</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>DDMMMYYYY
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>DDMMMYYYY
+</Explanation>
+    <MtfRegularExpression>(0[1-9]|(1|2)[0-9]|3(0|1))(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[0-9]{4}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:length value="9" />
+  <xsd:pattern value="(0[1-9]|(1|2)[0-9]|3(0|1))(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[0-9]{4}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="DerivativeSourceForClassificationType">
+ <xsd:annotation>
+  <xsd:documentation>The markings that define the source material for the classification of a message.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>DERIVATIVE SOURCE FOR CLASSIFICATION</FudName>
+   <FudExplanation>The markings that define the source material for the classification of a message.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>679</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>55</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>Markings will be in accordance with current edition. For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 108.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>Markings will be in accordance with current edition. For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 108.
+</Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,55}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="55" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,55}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="DeclassificationInstructionsType">
+ <xsd:annotation>
+  <xsd:documentation>The markings that provide literal guidance for the declassification of a message.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>DECLASSIFICATION INSTRUCTIONS</FudName>
+   <FudExplanation>The markings that provide literal guidance for the declassification of a message.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>679</FieldFormatIndexReferenceNumber>
+   <FudNumber>2</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>61</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>Markings will be in accordance with current edition. For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 108.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>Markings will be in accordance with current edition. For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 108.
+</Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,61}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="61" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,61}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="OriginalClassificationAuthorityType">
+ <xsd:annotation>
+  <xsd:documentation>The markings that indicate the original classification authority for a message.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>ORIGINAL CLASSIFICATION AUTHORITY</FudName>
+   <FudExplanation>The markings that indicate the original classification authority for a message.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>679</FieldFormatIndexReferenceNumber>
+   <FudNumber>4</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>55</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>Markings will be in accordance with current edition. For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 108.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>Markings will be in accordance with current edition. For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 108.
+</Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,55}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="55" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,55}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="ReasonForClassificationType">
+ <xsd:annotation>
+  <xsd:documentation>Coded entries that indicate the reason material is classified.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>REASON FOR CLASSIFICATION</FudName>
+   <FudExplanation>Coded entries that indicate the reason material is classified.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>679</FieldFormatIndexReferenceNumber>
+   <FudNumber>5</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <MinimumLength>3</MinimumLength>
+   <MaximumLength>3</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Individual</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:enumeration value="14A">
+   <xsd:annotation>
+    <xsd:documentation>Military Plans. Military plans, weapons systems, or operations.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Military Plans. Military plans, weapons systems, or operations.</Explanation>
+     <DataCode>14A</DataCode>
+     <DataItem>MILITARY PLANS</DataItem>
+     <DataItemSequenceNumber>1</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="14B">
+   <xsd:annotation>
+    <xsd:documentation>Foreign Information. Foreign government information.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Foreign Information. Foreign government information.</Explanation>
+     <DataCode>14B</DataCode>
+     <DataItem>FOREIGN INFORMATION</DataItem>
+     <DataItemSequenceNumber>2</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="14C">
+   <xsd:annotation>
+    <xsd:documentation>Intelligence Activities. Intelligence activities (including special activities), intelligence sources or methods, or cryptology.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Intelligence Activities. Intelligence activities (including special activities), intelligence sources or methods, or cryptology.</Explanation>
+     <DataCode>14C</DataCode>
+     <DataItem>INTELLIGENCE ACTIVITIES</DataItem>
+     <DataItemSequenceNumber>3</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="14D">
+   <xsd:annotation>
+    <xsd:documentation>Foreign Relations. Foreign relations or activities of the originating nation, including confidential sources.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Foreign Relations. Foreign relations or activities of the originating nation, including confidential sources.</Explanation>
+     <DataCode>14D</DataCode>
+     <DataItem>FOREIGN RELATIONS</DataItem>
+     <DataItemSequenceNumber>4</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="14E">
+   <xsd:annotation>
+    <xsd:documentation>National Security Matters. Scientific, technological, or economic matters relating to the national security, which includes defense against transnational terrorism.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>National Security Matters. Scientific, technological, or economic matters relating to the national security, which includes defense against transnational terrorism.</Explanation>
+     <DataCode>14E</DataCode>
+     <DataItem>NATIONAL SECURITY MATTERS</DataItem>
+     <DataItemSequenceNumber>5</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="14F">
+   <xsd:annotation>
+    <xsd:documentation>Nuclear Safeguards. National programs for safeguarding nuclear materials or facilities.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Nuclear Safeguards. National programs for safeguarding nuclear materials or facilities.</Explanation>
+     <DataCode>14F</DataCode>
+     <DataItem>NUCLEAR SAFEGUARDS</DataItem>
+     <DataItemSequenceNumber>6</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="14G">
+   <xsd:annotation>
+    <xsd:documentation>Vulnerabilities. Vulnerabilities or capabilities of systems, installations, infrastructures, projects, plans, or protection services relating to the national security, which includes defense against transnational terrorism.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Vulnerabilities. Vulnerabilities or capabilities of systems, installations, infrastructures, projects, plans, or protection services relating to the national security, which includes defense against transnational terrorism.</Explanation>
+     <DataCode>14G</DataCode>
+     <DataItem>VULNERABILITIES</DataItem>
+     <DataItemSequenceNumber>7</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="14H">
+   <xsd:annotation>
+    <xsd:documentation>Weapons of Mass Destruction. Nuclear, biological, chemical, or radiological weapons.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Weapons of Mass Destruction. Nuclear, biological, chemical, or radiological weapons.</Explanation>
+     <DataCode>14H</DataCode>
+     <DataItem>WEAPONS OF MASS DESTRUCTION</DataItem>
+     <DataItemSequenceNumber>8</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="DowngradeInstructionsType">
+ <xsd:annotation>
+  <xsd:documentation>The markings that provide literal guidance for the downgrade of a message.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>DOWNGRADE INSTRUCTIONS</FudName>
+   <FudExplanation>The markings that provide literal guidance for the downgrade of a message.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>679</FieldFormatIndexReferenceNumber>
+   <FudNumber>6</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>61</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>Markings will be in accordance with current edition. For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 108.
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>Markings will be in accordance with current edition. For further U.S. implementation guidance, see Repository of USMTF Program Items Document, item 108.
+</Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,61}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="61" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,61}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="DateTimeIsoType">
+ <xsd:annotation>
+  <xsd:documentation>A designation of a specified chronological point measured using Coordinated Universal Time (UTC) ISO 8601 as a standard of reference. This is expressed using a compacted ISO notation YYYYMMDDTHHMMSSZ where YYYY represents a year, MM represents a month 01 to 12, DD represents a day 01 to 31, character T is the time delimiter, HH represents an hour 00 to 23, MM represents a minute 00 to 59, SS represents the seconds 00 to 59, and Z represents the time zone.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>DATE TIME (ISO)</FudName>
+   <FudExplanation>A designation of a specified chronological point measured using Coordinated Universal Time (UTC) ISO 8601 as a standard of reference. This is expressed using a compacted ISO notation YYYYMMDDTHHMMSSZ where YYYY represents a year, MM represents a month 01 to 12, DD represents a day 01 to 31, character T is the time delimiter, HH represents an hour 00 to 23, MM represents a minute 00 to 59, SS represents the seconds 00 to 59, and Z represents the time zone.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>721</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.02.00</VersionIndicator>
+   <MinimumLength>16</MinimumLength>
+   <MaximumLength>16</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation>YYYYMMDDTHHMMSSZ
+</xsd:documentation>
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation>YYYYMMDDTHHMMSSZ
+</Explanation>
+    <MtfRegularExpression>[0-9]{4}(0[1-9]|1[0-2])(0[1-9]|(1|2)[0-9]|3(0|1))T((0|1)[0-9]|2[0-3])([0-5][0-9]){2}Z</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:length value="16" />
+  <xsd:pattern value="[0-9]{4}(0[1-9]|1[0-2])(0[1-9]|(1|2)[0-9]|3(0|1))T((0|1)[0-9]|2[0-3])([0-5][0-9]){2}Z" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="ReceiptComplianceType">
+ <xsd:annotation>
+  <xsd:documentation>The unit's acknowledgement and/or intentions.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>RECEIPT/COMPLIANCE</FudName>
+   <FudExplanation>The unit's acknowledgement and/or intentions.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>903</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <MinimumLength>3</MinimumLength>
+   <MaximumLength>6</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Individual</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:enumeration value="ACK">
+   <xsd:annotation>
+    <xsd:documentation>Acknowledge. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Acknowledge. </Explanation>
+     <DataCode>ACK</DataCode>
+     <DataItem>ACKNOWLEDGE</DataItem>
+     <DataItemSequenceNumber>1</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="CANTCO">
+   <xsd:annotation>
+    <xsd:documentation>Cannot Comply. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Cannot Comply. </Explanation>
+     <DataCode>CANTCO</DataCode>
+     <DataItem>CANNOT COMPLY</DataItem>
+     <DataItemSequenceNumber>2</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="HAVCO">
+   <xsd:annotation>
+    <xsd:documentation>Have Complied. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Have Complied. </Explanation>
+     <DataCode>HAVCO</DataCode>
+     <DataItem>HAVE COMPLIED</DataItem>
+     <DataItemSequenceNumber>3</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="WILCO">
+   <xsd:annotation>
+    <xsd:documentation>Will Comply. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Will Comply. </Explanation>
+     <DataCode>WILCO</DataCode>
+     <DataItem>WILL COMPLY</DataItem>
+     <DataItemSequenceNumber>4</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="SpecialNotationType">
+ <xsd:annotation>
+  <xsd:documentation>The caveat that indicates special actions, restrictions, guidance, or information relating to an item, action, message, document, equipment, etc.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>SPECIAL NOTATION</FudName>
+   <FudExplanation>The caveat that indicates special actions, restrictions, guidance, or information relating to an item, action, message, document, equipment, etc.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>1042</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <MinimumLength>5</MinimumLength>
+   <MaximumLength>5</MaximumLength>
+   <LengthLimitation>Fixed</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Individual</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:enumeration value="NOTAL">
+   <xsd:annotation>
+    <xsd:documentation>Not to All. The referenced item was not provided to all concerned. Unless noted otherwise, the referenced item was provided only to addees of the reference, and has not or will not be provided to others.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Not to All. The referenced item was not provided to all concerned. Unless noted otherwise, the referenced item was provided only to addees of the reference, and has not or will not be provided to others.</Explanation>
+     <DataCode>NOTAL</DataCode>
+     <DataItem>NOT TO ALL</DataItem>
+     <DataItemSequenceNumber>1</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="PASEP">
+   <xsd:annotation>
+    <xsd:documentation>Passed Separately. The referenced item was not provided directly and was or will be provided by separate action.</xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Passed Separately. The referenced item was not provided directly and was or will be provided by separate action.</Explanation>
+     <DataCode>PASEP</DataCode>
+     <DataItem>PASSED SEPARATELY</DataItem>
+     <DataItemSequenceNumber>2</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="TitleOfDocumentType">
+ <xsd:annotation>
+  <xsd:documentation>The title of the document.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>TITLE OF DOCUMENT</FudName>
+   <FudExplanation>The title of the document.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>1462</FieldFormatIndexReferenceNumber>
+   <FudNumber>8</FudNumber>
+   <VersionIndicator>#ERR_LEN </VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>54</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation />
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation></Explanation>
+    <MtfRegularExpression>[\-\.,\(\)\?A-Z0-9&#x20;]{1,54}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="54" />
+  <xsd:pattern value="[\-\.,\(\)\?A-Z0-9&#x20;]{1,54}" />
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="IntelligenceCollectionRequirementType">
+ <xsd:annotation>
+  <xsd:documentation>The code for the validation status of an intelligence collection requirement.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>INTELLIGENCE COLLECTION REQUIREMENT</FudName>
+   <FudExplanation>The code for the validation status of an intelligence collection requirement.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>2147</FieldFormatIndexReferenceNumber>
+   <FudNumber>3</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <MinimumLength>5</MinimumLength>
+   <MaximumLength>6</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Individual</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:enumeration value="NONVAL">
+   <xsd:annotation>
+    <xsd:documentation>Nonvalidated. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Nonvalidated. </Explanation>
+     <DataCode>NONVAL</DataCode>
+     <DataItem>NONVALIDATED</DataItem>
+     <DataItemSequenceNumber>1</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="VALID">
+   <xsd:annotation>
+    <xsd:documentation>Validated. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Validated. </Explanation>
+     <DataCode>VALID</DataCode>
+     <DataItem>VALIDATED</DataItem>
+     <DataItemSequenceNumber>2</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+  <xsd:enumeration value="VALCHG">
+   <xsd:annotation>
+    <xsd:documentation>Validated With Change. </xsd:documentation>
+    <xsd:appinfo>
+     <DataType>String</DataType>
+     <Explanation>Validated With Change. </Explanation>
+     <DataCode>VALCHG</DataCode>
+     <DataItem>VALIDATED WITH CHANGE</DataItem>
+     <DataItemSequenceNumber>3</DataItemSequenceNumber>
+     <DataItemSponsor />
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:enumeration>
+ </xsd:restriction>
+</xsd:simpleType><xsd:simpleType name="ChatRoomNameType">
+ <xsd:annotation>
+  <xsd:documentation>The virtual room where Chat will be employed to support tactical and operational objectives.</xsd:documentation>
+  <xsd:appinfo>
+   <FudName>CHAT ROOM NAME</FudName>
+   <FudExplanation>The virtual room where Chat will be employed to support tactical and operational objectives.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>2590</FieldFormatIndexReferenceNumber>
+   <FudNumber>8</FudNumber>
+   <VersionIndicator>B.1.01.03</VersionIndicator>
+   <MinimumLength>1</MinimumLength>
+   <MaximumLength>52</MaximumLength>
+   <LengthLimitation>Variable</LengthLimitation>
+   <UnitOfMeasure />
+   <Type>String</Type>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+   <EntryType>Instructive</EntryType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:restriction base="xsd:string">
+  <xsd:annotation>
+   <xsd:documentation />
+   <xsd:appinfo>
+    <DataType>String</DataType>
+    <Explanation></Explanation>
+    <MtfRegularExpression>[#_\-\.,\(\)\?A-Z0-9&#x20;]{1,52}</MtfRegularExpression>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:minLength value="1" />
+  <xsd:maxLength value="52" />
+  <xsd:pattern value="[#_\-\.,\(\)\?A-Z0-9&#x20;]{1,52}" />
+ </xsd:restriction>
+</xsd:simpleType></xsd:schema>

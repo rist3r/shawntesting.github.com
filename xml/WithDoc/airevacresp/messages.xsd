@@ -1,0 +1,315 @@
+<?xml version="1.0" ?> 
+<xsd:schema targetNamespace="urn:mtf:mil:6040b:airevacresp:B.1.01.14" xml:lang="en-US" xmlns="urn:mtf:mil:6040b:airevacresp:B.1.01.14" xmlns:s="urn:mtf:mil:6040b:airevacresp:B.1.01.14:set" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ism="urn:us:gov:ic:ism:v2" xmlns:ddms="http://metadata.dod.mil/mdr/ns/DDMS/2.0/" xmlns:ICISM="urn:us:gov:ic:ism:v2" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+ <xsd:import namespace="urn:mtf:mil:6040b:airevacresp:B.1.01.14:set" schemaLocation="sets.xsd" />
+ <xsd:import namespace="urn:us:gov:ic:ism:v2" schemaLocation="IC-ISM-v2.xsd" />
+ <xsd:annotation>
+  <xsd:appinfo>
+   <ddms:security ICISM:classification="U" ICISM:ownerProducer="USA" ICISM:nonICmarkings="DIST_STMT_C" />
+  </xsd:appinfo>
+  <xsd:appinfo>DISTRIBUTION STATEMENT C. Distribution authorized to U.S. Government Agencies and their contractors only for administrative or operational use. Other requests for this document shall be referred to Defense Information Systems Agency Interoperability Directorate. WARNING - This document contains technical data whose export is restricted by the Arms Export Control Act (Title 22, U.S.C., Sec. 2751) or the Export Administration Act of 1979, as amended, Title 50, U.S.C., App. 2401. Violations of these export laws are subject to severe criminal penalties.  Disseminate in accordance with provisions of DOD Directive 5230.25.</xsd:appinfo>
+ </xsd:annotation><xsd:element name="AirEvacuationResponse">
+ <xsd:annotation>
+  <xsd:documentation>The AIREVACRESP is used to respond to an Aeromedical Evacuation (AE) mission request.</xsd:documentation>
+  <xsd:appinfo>
+   <MtfName>AIR EVACUATION RESPONSE</MtfName>
+   <MtfIdentifier>AIREVACRESP</MtfIdentifier>
+   <MtfIndexReferenceNumber>F852</MtfIndexReferenceNumber>
+   <MtfSponsor>USA</MtfSponsor>
+   <MtfPurpose>The AIREVACRESP is used to respond to an Aeromedical Evacuation (AE) mission request.</MtfPurpose>
+   <MtfRelatedDocument>NONE</MtfRelatedDocument>
+   <MtfRemark>B.1.01.13 was updated by ICP M2017-04, which updated the REF Set.</MtfRemark>
+   <MtfNote />
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[3]F1 A /AIREVACRESP/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in MSGID (Set 3) is assigned the value "AIREVACRESP".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageTextFormatIdentifier))) then 'null' else xsn:or3(  string( /*:AirEvacuationResponse/MessageIdentifier/MessageTextFormatIdentifier) eq "AIREVACRESP")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[3]F2 A /MIL-STD-6040(SERIES)/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 2 in MSGID (Set 3) is assigned the value "MIL-STD-6040(SERIES)".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirEvacuationResponse/MessageIdentifier/StandardOfMessageTextFormat))) then 'null' else xsn:or3(  string( /*:AirEvacuationResponse/MessageIdentifier/StandardOfMessageTextFormat) eq "MIL-STD-6040(SERIES)")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[3]F3 A /B.1.01.14/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 3 in MSGID (Set 3) is assigned the value "B.1.01.14".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirEvacuationResponse/MessageIdentifier/VersionOfMessageTextFormat))) then 'null' else xsn:or3(  string( /*:AirEvacuationResponse/MessageIdentifier/VersionOfMessageTextFormat) eq "B.1.01.14")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[4],AF3 R ([4],AF2 EQ /CHT/ | /DOC/)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 3 in REF (Set 4) is required if Field 2 in the same REF (Set 4) lexicographically equals "CHT" or "DOC".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirEvacuationResponse/Reference))) then 'null' else xsn:and3( for $A in 1 to count( /*:AirEvacuationResponse/Reference) return xsn:or3(  xsn:not3(   if ( not( exists( /*:AirEvacuationResponse/Reference[ $A]/CommunicationType/*)) and not( exists( /*:AirEvacuationResponse/Reference[ $A]/CommunicationType/*/*))) then 'null' else xsn:or3(  string( if ( exists( /*:AirEvacuationResponse/Reference[ $A]/CommunicationType/*/*)) then string-join( /*:AirEvacuationResponse/Reference[ $A]/CommunicationType/*/*,"") else string( /*:AirEvacuationResponse/Reference[ $A]/CommunicationType/*)) eq "CHT",  string( if ( exists( /*:AirEvacuationResponse/Reference[ $A]/CommunicationType/*/*)) then string-join( /*:AirEvacuationResponse/Reference[ $A]/CommunicationType/*/*,"") else string( /*:AirEvacuationResponse/Reference[ $A]/CommunicationType/*)) eq "DOC")),  if ( not( exists( /*:AirEvacuationResponse/Reference[ $A]))) then 'null' else  count( /*:AirEvacuationResponse/Reference[ $A]/InformationProduct) != 0  ))</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[7]FG,NF1 EQ [6]FG,NF1</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in at least one occurrence of the Field Group in 8ONLOAD (Set 7) lexicographically must equal Field 1 in at least one occurrence of the Field Group in 8AFLDINF (Set 6).</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirEvacuationResponse/RequestedOnload/GroupOfFields))) then 'null' else xsn:or3( for $expr_1_1 in 1 to count( /*:AirEvacuationResponse/RequestedOnload/GroupOfFields) return if ( not( exists( /*:AirEvacuationResponse/RequestedOnload/GroupOfFields[ $expr_1_1]/DataEntry))) then 'null' else xsn:or3(  if ( not( exists( /*:AirEvacuationResponse/EvacuationAirfieldInformation/GroupOfFields))) then 'null' else xsn:or3( for $expr1_op1_1 in 1 to count( /*:AirEvacuationResponse/EvacuationAirfieldInformation/GroupOfFields) return if ( not( exists( /*:AirEvacuationResponse/EvacuationAirfieldInformation/GroupOfFields[ $expr1_op1_1]/DataEntry))) then 'null' else string( /*:AirEvacuationResponse/RequestedOnload/GroupOfFields[ $expr_1_1]/DataEntry) eq string( /*:AirEvacuationResponse/EvacuationAirfieldInformation/GroupOfFields[ $expr1_op1_1]/DataEntry))))</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[8]FG,NF1 EQ [6]FG,NF1</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in at least one occurrence of the Field Group in 8OFFLOAD (Set 8) lexicographically must equal Field 1 in at least one occurrence of the Field Group in 8AFLDINF (Set 6).</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirEvacuationResponse/RequestedOffload/GroupOfFields))) then 'null' else xsn:or3( for $expr_1_1 in 1 to count( /*:AirEvacuationResponse/RequestedOffload/GroupOfFields) return if ( not( exists( /*:AirEvacuationResponse/RequestedOffload/GroupOfFields[ $expr_1_1]/DataEntry))) then 'null' else xsn:or3(  if ( not( exists( /*:AirEvacuationResponse/EvacuationAirfieldInformation/GroupOfFields))) then 'null' else xsn:or3( for $expr1_op1_1 in 1 to count( /*:AirEvacuationResponse/EvacuationAirfieldInformation/GroupOfFields) return if ( not( exists( /*:AirEvacuationResponse/EvacuationAirfieldInformation/GroupOfFields[ $expr1_op1_1]/DataEntry))) then 'null' else string( /*:AirEvacuationResponse/RequestedOffload/GroupOfFields[ $expr_1_1]/DataEntry) eq string( /*:AirEvacuationResponse/EvacuationAirfieldInformation/GroupOfFields[ $expr1_op1_1]/DataEntry))))</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[9]F1 A /FLIGHT INFORMATION AND MANIFEST NUMBER/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in GENTEXT (Set 9) is assigned the value "FLIGHT INFORMATION AND MANIFEST NUMBER".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AirEvacuationResponse/GeneralText/TextIndicator))) then 'null' else xsn:or3(  string( /*:AirEvacuationResponse/GeneralText/TextIndicator) eq "FLIGHT INFORMATION AND MANIFEST NUMBER")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[10] RP ([3]F10 EQ /CONFIDENTIAL/ | /SECRET/ | /TOP SECRET/ | /RESTRICTED/ | /NATO RESTRICTED/ | /NATO CONFIDENTIAL/ | /NATO SECRET/ | /NATO SECRET-SAVATE/ | /NATO SECRET-AVICULA/ | /COSMIC TOP SECRET/ | /COSMIC TOP SECRET-BOHEMIA/ | /COSMIC TOP SECRET-BALK/ | /COSMIC TOP SECRET ATOMAL/ | /NATO SECRET ATOMAL/ | /NATO CONFIDENTIAL ATOMAL/)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>DECL (Set 10) is required if Field 10 in MSGID (SET 3) lexicographically equals "CONFIDENTIAL" or "SECRET" or "TOP SECRET" or "RESTRICTED" or "NATO RESTRICTED" or "NATO CONFIDENTIAL" or "NATO SECRET" or "NATO SECRET-SAVATE" or "NATO SECRET-AVICULA" or "COSMIC TOP SECRET" or "COSMIC TOP SECRET-BOHEMIA" or "COSMIC TOP SECRET-BALK" or "COSMIC TOP SECRET ATOMAL" or "NATO SECRET ATOMAL" or "NATO CONFIDENTIAL ATOMAL" otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>for $cond in  if ( not( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) and not( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*))) then 'null' else xsn:or3(  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "CONFIDENTIAL",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "SECRET",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "TOP SECRET",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "RESTRICTED",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO RESTRICTED",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO CONFIDENTIAL",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET-SAVATE",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET-AVICULA",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET-BOHEMIA",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET-BALK",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET ATOMAL",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET ATOMAL",  string( if ( exists( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AirEvacuationResponse/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO CONFIDENTIAL ATOMAL")  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  count( /*:AirEvacuationResponse/MessageDowngradingOrDeclassificationData) != 0  else  count( /*:AirEvacuationResponse/MessageDowngradingOrDeclassificationData) = 0</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[10]F2 RP ([10]F1 = FF679-4)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 2 in DECL (Set 10) is required if Field 1 in DECL (Set 10) uses alternative ORIGINAL CLASSIFICATION AUTHORITY (FF679-4) otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>for $cond in if ( not( exists( /*:AirEvacuationResponse/MessageDowngradingOrDeclassificationData/SourceForClassification))) then 'null' else xsn:or3(  exists( /*:AirEvacuationResponse/MessageDowngradingOrDeclassificationData/SourceForClassification/OriginalClassificationAuthority))  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  if ( not( exists( /*:AirEvacuationResponse/MessageDowngradingOrDeclassificationData))) then 'null' else  count( /*:AirEvacuationResponse/MessageDowngradingOrDeclassificationData/ReasonForClassification) != 0  else  if ( not( exists( /*:AirEvacuationResponse/MessageDowngradingOrDeclassificationData))) then 'null' else  count( /*:AirEvacuationResponse/MessageDowngradingOrDeclassificationData/ReasonForClassification) = 0</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <VersionIndicator>B.1.01.14</VersionIndicator>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+<xsd:sequence><xsd:choice minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <AlternativeType>Mutually Exclusive, None Required</AlternativeType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:element name="ExerciseIdentification" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+   <xsd:documentation>The EXER set provides the designated code name or nickname, if the message supports an exercise.</xsd:documentation>
+   <xsd:appinfo>
+    <SetFormatPositionName>EXERCISE IDENTIFICATION</SetFormatPositionName>
+    <SetFormatPositionNumber>1</SetFormatPositionNumber>
+    <SetFormatPositionConcept>The EXER set provides the designated code name or nickname, if the message supports an exercise.</SetFormatPositionConcept>
+    <SetFormatPositionUseDescription />
+    <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+    <Repeatability>1</Repeatability>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexType>
+   <xsd:complexContent>
+    <xsd:extension base="s:ExerciseIdentificationType">
+     <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="1" />
+     <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+    </xsd:extension>
+   </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:element>
+ <xsd:element name="OperationIdentificationData" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+   <xsd:documentation>The OPER set provides the designated code name or nickname, if the message supports an operation.</xsd:documentation>
+   <xsd:appinfo>
+    <SetFormatPositionName>OPERATION IDENTIFICATION DATA</SetFormatPositionName>
+    <SetFormatPositionNumber>2</SetFormatPositionNumber>
+    <SetFormatPositionConcept>The OPER set provides the designated code name or nickname, if the message supports an operation.</SetFormatPositionConcept>
+    <SetFormatPositionUseDescription />
+    <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+    <Repeatability>1</Repeatability>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexType>
+   <xsd:complexContent>
+    <xsd:extension base="s:OperationIdentificationDataType">
+     <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="2" />
+     <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+    </xsd:extension>
+   </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:element>
+</xsd:choice>
+
+<xsd:element name="MessageIdentifier" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The MSGID set provides the message identification and originator.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>MESSAGE IDENTIFIER</SetFormatPositionName>
+   <SetFormatPositionNumber>3</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The MSGID set provides the message identification and originator.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:MessageIdentifierType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="3" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="Reference" minOccurs="0" maxOccurs="unbounded">
+ <xsd:annotation>
+  <xsd:documentation>The REF set provides both USMTF and non-USMTF references.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>REFERENCE</SetFormatPositionName>
+   <SetFormatPositionNumber>4</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The REF set provides both USMTF and non-USMTF references.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>unbounded</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:ReferenceType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="4" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="EvacuationFlightInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The FLTINFO set provides evacuation aircraft flight information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>EVACUATION FLIGHT INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>5</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The FLTINFO set provides evacuation aircraft flight information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:EvacuationFlightInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="5" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="EvacuationAirfieldInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 8AFLDINF set provides evacuation airfield information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>EVACUATION AIRFIELD INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>6</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 8AFLDINF set provides evacuation airfield information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:EvacuationAirfieldInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="6" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="RequestedOnload" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 8ONLOAD set provides patient on-load information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>REQUESTED ONLOAD</SetFormatPositionName>
+   <SetFormatPositionNumber>7</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 8ONLOAD set provides patient on-load information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:RequestedOnloadType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="7" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="RequestedOffload" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 8OFFLOAD set provides patient off-load information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>REQUESTED OFFLOAD</SetFormatPositionName>
+   <SetFormatPositionNumber>8</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 8OFFLOAD set provides patient off-load information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:RequestedOffloadType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="8" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="GeneralText" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The GENTEXT/FLIGHT INFORMATION AND MANIFEST NUMBER set identifies the manifest number and/or flight authorization number details, as well as any additional information pertaining to the mission.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>GENERAL TEXT</SetFormatPositionName>
+   <SetFormatPositionNumber>9</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The GENTEXT/FLIGHT INFORMATION AND MANIFEST NUMBER set identifies the manifest number and/or flight authorization number details, as well as any additional information pertaining to the mission.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>Field 1 of the GENTEXT set must equal "FLIGHT INFORMATION AND MANIFEST NUMBER".</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:GeneralTextType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="9" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="Remarks" minOccurs="0" maxOccurs="1">
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:RemarksType">
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+<xsd:element name="MessageDowngradingOrDeclassificationData" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The DECL set provides declassification or downgrading instructions, if the message is classified.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>MESSAGE DOWNGRADING OR DECLASSIFICATION DATA</SetFormatPositionName>
+   <SetFormatPositionNumber>10</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The DECL set provides declassification or downgrading instructions, if the message is classified.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>The DECL set is REQUIRED if Field 10 in the MSGID set lexicographically equals "CONFIDENTIAL" or "SECRET" or "TOP SECRET" or "RESTRICTED" or "NATO RESTRICTED" or "NATO CONFIDENTIAL" or "NATO SECRET" or "NATO SECRET-SAVATE" or "NATO SECRET-AVICULA" or "COSMIC TOP SECRET" or "COSMIC TOP SECRET-BOHEMIA" or "COSMIC TOP SECRET-BALK" or "COSMIC TOP SECRET ATOMAL" or "NATO SECRET ATOMAL" or "NATO CONFIDENTIAL ATOMAL", otherwise the DECL set is PROHIBITED.</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Conditional</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:MessageDowngradingOrDeclassificationDataType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="10" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element></xsd:sequence>
+<xsd:attribute name="mtfid" type="xsd:string" fixed="AIREVACRESP" /><xsd:attributeGroup ref="ism:SecurityAttributesGroup" /></xsd:complexType>
+</xsd:element></xsd:schema>

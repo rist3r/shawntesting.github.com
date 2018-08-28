@@ -1,0 +1,368 @@
+<?xml version="1.0" ?> 
+<xsd:schema targetNamespace="urn:mtf:mil:6040b:afu.asr:B.1.01.12" xml:lang="en-US" xmlns="urn:mtf:mil:6040b:afu.asr:B.1.01.12" xmlns:s="urn:mtf:mil:6040b:afu.asr:B.1.01.12:set" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ism="urn:us:gov:ic:ism:v2" xmlns:ddms="http://metadata.dod.mil/mdr/ns/DDMS/2.0/" xmlns:ICISM="urn:us:gov:ic:ism:v2" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+ <xsd:import namespace="urn:mtf:mil:6040b:afu.asr:B.1.01.12:set" schemaLocation="sets.xsd" />
+ <xsd:import namespace="urn:us:gov:ic:ism:v2" schemaLocation="IC-ISM-v2.xsd" />
+ <xsd:annotation>
+  <xsd:appinfo>
+   <ddms:security ICISM:classification="U" ICISM:ownerProducer="USA" ICISM:nonICmarkings="DIST_STMT_C" />
+  </xsd:appinfo>
+  <xsd:appinfo>DISTRIBUTION STATEMENT C. Distribution authorized to U.S. Government Agencies and their contractors only for administrative or operational use. Other requests for this document shall be referred to Defense Information Systems Agency Interoperability Directorate. WARNING - This document contains technical data whose export is restricted by the Arms Export Control Act (Title 22, U.S.C., Sec. 2751) or the Export Administration Act of 1979, as amended, Title 50, U.S.C., App. 2401. Violations of these export laws are subject to severe criminal penalties.  Disseminate in accordance with provisions of DOD Directive 5230.25.</xsd:appinfo>
+ </xsd:annotation><xsd:element name="AmmunitionFireUnitAmmunitionSupplyRate">
+ <xsd:annotation>
+  <xsd:documentation>The AFU.ASR is used to report the required supply rate, establish the controlled supply rate, and update the amount of expended ammunition, in relation to the controlled supply rate.</xsd:documentation>
+  <xsd:appinfo>
+   <MtfName>AMMUNITION FIRE UNIT-AMMUNITION SUPPLY RATE</MtfName>
+   <MtfIdentifier>AFU.ASR</MtfIdentifier>
+   <MtfIndexReferenceNumber>F231</MtfIndexReferenceNumber>
+   <MtfSponsor>USA</MtfSponsor>
+   <MtfPurpose>The AFU.ASR is used to report the required supply rate, establish the controlled supply rate, and update the amount of expended ammunition, in relation to the controlled supply rate.</MtfPurpose>
+   <MtfRelatedDocument>NONE</MtfRelatedDocument>
+   <MtfRemark>B.1.01.11 was updated by ICP M2016-04, which updated the SPECIAL OPTION DATA ASR SEGMENT.</MtfRemark>
+   <MtfNote>At a minimum, all mandatory sets plus the following sets must be entered for initial establishment of an ammunition supply rate: UNT or WPNTYP and RSR or CSR. Ammunition expenditures since the last report are summarized by projectile type and quantity to indicate expenditure levels relative to the controlled supply rate. detailed ammunition status reporting is accomplished, by unit, in the AFU.AMS. For report of ammunition expenditure, all mandatory sets plus either the UNT or WPNTYP set and the EXP set must be used.</MtfNote>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[3]F1 A /AFU.ASR/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in MSGID (Set 3) is assigned the value "AFU.ASR".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageTextFormatIdentifier))) then 'null' else xsn:or3(  string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageTextFormatIdentifier) eq "AFU.ASR")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[3]F2 A /MIL-STD-6040(SERIES)/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 2 in MSGID (Set 3) is assigned the value "MIL-STD-6040(SERIES)".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/StandardOfMessageTextFormat))) then 'null' else xsn:or3(  string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/StandardOfMessageTextFormat) eq "MIL-STD-6040(SERIES)")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[3]F3 A /B.1.01.12/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 3 in MSGID (Set 3) is assigned the value "B.1.01.12".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/VersionOfMessageTextFormat))) then 'null' else xsn:or3(  string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/VersionOfMessageTextFormat) eq "B.1.01.12")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[4S],A[4]F1 EQ /ADD/ ([4S],A[4]F1 !EQ /AMD/ &amp; /CAN/)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in OPT (Set 4) in OPT (Segment 4) lexicographically must equal "ADD" if Field 1 in OPT (Set 4) in the same OPT (Segment 4) lexicographically does not equal "AMD" and "CAN".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData]))) then 'null' else xsn:and3( for $A in 1 to count( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData]) return xsn:or3(  xsn:not3(  if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData][ $A]/SpecialOptionData/PrimaryOptionIndicator))) then 'null' else xsn:and3(  string( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData][ $A]/SpecialOptionData/PrimaryOptionIndicator) ne "AMD",  string( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData][ $A]/SpecialOptionData/PrimaryOptionIndicator) ne "CAN")  ),  if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData][ $A]/SpecialOptionData/PrimaryOptionIndicator))) then 'null' else xsn:or3(  string( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData][ $A]/SpecialOptionData/PrimaryOptionIndicator) eq "ADD")))</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[4S],Z[4]F2 P</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 2 in OPT (Set 4) in every OPT (Segment 4) is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData]))) then 'null' else xsn:and3( for $expr1_1 in 1 to count( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData]) return if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData][ $expr1_1]/SpecialOptionData))) then 'null' else  count( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData][ $expr1_1]/SpecialOptionData/SecondaryOptionIndicator) = 0 )</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[4S],Z[6]FG,ZF4 R</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 4 in every Field Group in UNT (Set 6) in every OPT (Segment 4) is required.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData]))) then 'null' else xsn:and3( for $expr1_1 in 1 to count( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData]) return if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData][ $expr1_1]/UnitDesignationData))) then 'null' else  count( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData][ $expr1_1]/UnitDesignationData/GroupOfFields/BattalionRegimentDesignator) != 0 )</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[4S],Z[6]FG,ZF5 R</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 5 in every Field Group in UNT (Set 6) in every OPT (Segment 4) is required.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData]))) then 'null' else xsn:and3( for $expr1_1 in 1 to count( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData]) return if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData][ $expr1_1]/UnitDesignationData))) then 'null' else  count( /*:AmmunitionFireUnitAmmunitionSupplyRate/SpecialOptionDataAsrSegment[SpecialOptionData][ $expr1_1]/UnitDesignationData/GroupOfFields/RegimentBrigadeDivisionDesignator) != 0 )</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[11] RP ([3]F10 EQ /CONFIDENTIAL/ | /SECRET/ | /TOP SECRET/ | /RESTRICTED/ | /NATO RESTRICTED/ | /NATO CONFIDENTIAL/ | /NATO SECRET/ | /NATO SECRET-SAVATE/ | /NATO SECRET-AVICULA/ | /COSMIC TOP SECRET/ | /COSMIC TOP SECRET-BOHEMIA/ | /COSMIC TOP SECRET-BALK/ | /COSMIC TOP SECRET ATOMAL/ | /NATO SECRET ATOMAL/ | /NATO CONFIDENTIAL ATOMAL/)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>DECL (Set 11) is required if Field 10 in MSGID (SET 3) lexicographically equals "CONFIDENTIAL" or "SECRET" or "TOP SECRET" or "RESTRICTED" or "NATO RESTRICTED" or "NATO CONFIDENTIAL" or "NATO SECRET" or "NATO SECRET-SAVATE" or "NATO SECRET-AVICULA" or "COSMIC TOP SECRET" or "COSMIC TOP SECRET-BOHEMIA" or "COSMIC TOP SECRET-BALK" or "COSMIC TOP SECRET ATOMAL" or "NATO SECRET ATOMAL" or "NATO CONFIDENTIAL ATOMAL" otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>for $cond in  if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) and not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*))) then 'null' else xsn:or3(  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "CONFIDENTIAL",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "SECRET",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "TOP SECRET",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "RESTRICTED",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO RESTRICTED",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO CONFIDENTIAL",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET-SAVATE",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET-AVICULA",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET-BOHEMIA",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET-BALK",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET ATOMAL",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET ATOMAL",  string( if ( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO CONFIDENTIAL ATOMAL")  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  count( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageDowngradingOrDeclassificationData) != 0  else  count( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageDowngradingOrDeclassificationData) = 0</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[11]F2 RP ([11]F1 = FF679-4)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 2 in DECL (Set 11) is required if Field 1 in DECL (Set 11) uses alternative ORIGINAL CLASSIFICATION AUTHORITY (FF679-4) otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>for $cond in if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageDowngradingOrDeclassificationData/SourceForClassification))) then 'null' else xsn:or3(  exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageDowngradingOrDeclassificationData/SourceForClassification/OriginalClassificationAuthority))  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageDowngradingOrDeclassificationData))) then 'null' else  count( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageDowngradingOrDeclassificationData/ReasonForClassification) != 0  else  if ( not( exists( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageDowngradingOrDeclassificationData))) then 'null' else  count( /*:AmmunitionFireUnitAmmunitionSupplyRate/MessageDowngradingOrDeclassificationData/ReasonForClassification) = 0</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <VersionIndicator>B.1.01.12</VersionIndicator>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+<xsd:sequence><xsd:choice minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <AlternativeType>Mutually Exclusive, None Required</AlternativeType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:element name="ExerciseIdentification" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+   <xsd:documentation>The EXER set provides the designated code name or nickname, if the message supports an exercise.</xsd:documentation>
+   <xsd:appinfo>
+    <SetFormatPositionName>EXERCISE IDENTIFICATION</SetFormatPositionName>
+    <SetFormatPositionNumber>1</SetFormatPositionNumber>
+    <SetFormatPositionConcept>The EXER set provides the designated code name or nickname, if the message supports an exercise.</SetFormatPositionConcept>
+    <SetFormatPositionUseDescription />
+    <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+    <Repeatability>1</Repeatability>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexType>
+   <xsd:complexContent>
+    <xsd:extension base="s:ExerciseIdentificationType">
+     <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="1" />
+     <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+    </xsd:extension>
+   </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:element>
+ <xsd:element name="OperationIdentificationData" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+   <xsd:documentation>The OPER set provides the designated code name or nickname, if the message supports an operation.</xsd:documentation>
+   <xsd:appinfo>
+    <SetFormatPositionName>OPERATION IDENTIFICATION DATA</SetFormatPositionName>
+    <SetFormatPositionNumber>2</SetFormatPositionNumber>
+    <SetFormatPositionConcept>The OPER set provides the designated code name or nickname, if the message supports an operation.</SetFormatPositionConcept>
+    <SetFormatPositionUseDescription />
+    <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+    <Repeatability>1</Repeatability>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexType>
+   <xsd:complexContent>
+    <xsd:extension base="s:OperationIdentificationDataType">
+     <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="2" />
+     <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+    </xsd:extension>
+   </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:element>
+</xsd:choice>
+
+<xsd:element name="MessageIdentifier" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The MSGID set provides the message identification and originator.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>MESSAGE IDENTIFIER</SetFormatPositionName>
+   <SetFormatPositionNumber>3</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The MSGID set provides the message identification and originator.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:MessageIdentifierType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="3" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+<xsd:element name="SpecialOptionDataAsrSegment" minOccurs="1" maxOccurs="unbounded">
+ <xsd:annotation>
+  <xsd:documentation>The sets OPT through EXP form a MANDATORY SEGMENT to report ammunition supply rates or expenditure data pertaining to more than one fire plan.</xsd:documentation>
+  <xsd:appinfo>
+   <SegmentStructureName>SPECIAL OPTION DATA ASR SEGMENT</SegmentStructureName>
+   <SegmentStructureConcept />
+   <SegmentStructureUseDescription>The sets OPT through EXP form a MANDATORY SEGMENT to report ammunition supply rates or expenditure data pertaining to more than one fire plan.</SegmentStructureUseDescription>
+   <InitialSetFormatPosition>4</InitialSetFormatPosition>
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>unbounded</Repeatability>
+   <VersionIndicator />
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="SpecialOptionData" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The OPT set identifies the options of the report.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>SPECIAL OPTION DATA</SetFormatPositionName>
+   <SetFormatPositionNumber>4</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The OPT set identifies the options of the report.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>Field 1 of the OPT set must equal "ADD", if "AMD" or "CAN" is not used.
+Field 2 of the OPT set is PROHIBITED in the AFU.ASR message.</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:SpecialOptionDataType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="4" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="FirePlanDesignation" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The FPN set identifies the fire plan.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>FIRE PLAN DESIGNATION</SetFormatPositionName>
+   <SetFormatPositionNumber>5</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The FPN set identifies the fire plan.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:FirePlanDesignationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="5" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+<xsd:choice minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <AlternativeType>Mutually Exclusive, None Required</AlternativeType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:element name="UnitDesignationData" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+   <xsd:documentation>The UNT set identifies the fire units.</xsd:documentation>
+   <xsd:appinfo>
+    <SetFormatPositionName>UNIT DESIGNATION DATA</SetFormatPositionName>
+    <SetFormatPositionNumber>6</SetFormatPositionNumber>
+    <SetFormatPositionConcept>The UNT set identifies the fire units.</SetFormatPositionConcept>
+    <SetFormatPositionUseDescription>Field 3 of the UNT set is OPERATIONALLY DETERMINED in the AFU.ASR message if the UNT set is used.
+Fields 4 and 5 of the UNT set are REQUIRED if the UNT set is used.</SetFormatPositionUseDescription>
+    <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+    <Repeatability>1</Repeatability>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexType>
+   <xsd:complexContent>
+    <xsd:extension base="s:UnitDesignationDataType">
+     <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="6" />
+     <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+    </xsd:extension>
+   </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:element>
+ <xsd:element name="SurfaceToSurfaceWeaponType" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+   <xsd:documentation>The WPNTYP set identifies surface-to-surface weapons when initially establishing an ammunition supply rate.</xsd:documentation>
+   <xsd:appinfo>
+    <SetFormatPositionName>SURFACE-TO-SURFACE WEAPON TYPE</SetFormatPositionName>
+    <SetFormatPositionNumber>7</SetFormatPositionNumber>
+    <SetFormatPositionConcept>The WPNTYP set identifies surface-to-surface weapons when initially establishing an ammunition supply rate.</SetFormatPositionConcept>
+    <SetFormatPositionUseDescription />
+    <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+    <Repeatability>1</Repeatability>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexType>
+   <xsd:complexContent>
+    <xsd:extension base="s:SurfaceToSurfaceWeaponTypeType">
+     <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="7" />
+     <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+    </xsd:extension>
+   </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:element>
+</xsd:choice>
+<xsd:choice minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <AlternativeType>Mutually Exclusive, None Required</AlternativeType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:element name="RequiredSupplyRate" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+   <xsd:documentation>The RSR set provides the projectile required supply rate.</xsd:documentation>
+   <xsd:appinfo>
+    <SetFormatPositionName>REQUIRED SUPPLY RATE</SetFormatPositionName>
+    <SetFormatPositionNumber>8</SetFormatPositionNumber>
+    <SetFormatPositionConcept>The RSR set provides the projectile required supply rate.</SetFormatPositionConcept>
+    <SetFormatPositionUseDescription>The RSR set is REQUIRED if the UNT or WPNTYP set is used, otherwise the RSR set is PROHIBITED.
+The RSR set is used for initially establishing an ammunition supply rate when the CSR set is not used.</SetFormatPositionUseDescription>
+    <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+    <Repeatability>1</Repeatability>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexType>
+   <xsd:complexContent>
+    <xsd:extension base="s:RequiredSupplyRateType">
+     <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="8" />
+     <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+    </xsd:extension>
+   </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:element>
+ <xsd:element name="ControlledSupplyRateByProjectileType" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+   <xsd:documentation>The CSR set provides the projectile controlled supply rate.</xsd:documentation>
+   <xsd:appinfo>
+    <SetFormatPositionName>CONTROLLED SUPPLY RATE BY PROJECTILE TYPE</SetFormatPositionName>
+    <SetFormatPositionNumber>9</SetFormatPositionNumber>
+    <SetFormatPositionConcept>The CSR set provides the projectile controlled supply rate.</SetFormatPositionConcept>
+    <SetFormatPositionUseDescription />
+    <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+    <Repeatability>1</Repeatability>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexType>
+   <xsd:complexContent>
+    <xsd:extension base="s:ControlledSupplyRateByProjectileTypeType">
+     <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="9" />
+     <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+    </xsd:extension>
+   </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:element>
+</xsd:choice>
+
+<xsd:element name="AmmunitionExpendedByProjectileType" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The EXP set provides the type and amount of ammunition expended.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>AMMUNITION EXPENDED BY PROJECTILE TYPE</SetFormatPositionName>
+   <SetFormatPositionNumber>10</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The EXP set provides the type and amount of ammunition expended.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:AmmunitionExpendedByProjectileTypeType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="10" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="segSeq" type="xsd:unsignedShort" fixed="4" /><xsd:attributeGroup ref="ism:SecurityAttributesGroup" /></xsd:complexType>
+</xsd:element>
+
+<xsd:element name="Remarks" minOccurs="0" maxOccurs="1">
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:RemarksType">
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+<xsd:element name="MessageDowngradingOrDeclassificationData" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The DECL set provides declassification or downgrading instructions, if the message is classified.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>MESSAGE DOWNGRADING OR DECLASSIFICATION DATA</SetFormatPositionName>
+   <SetFormatPositionNumber>11</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The DECL set provides declassification or downgrading instructions, if the message is classified.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>The DECL set is REQUIRED if Field 10 in the MSGID set lexicographically equals "CONFIDENTIAL" or "SECRET" or "TOP SECRET" or "RESTRICTED" or "NATO RESTRICTED" or "NATO CONFIDENTIAL" or "NATO SECRET" or "NATO SECRET-SAVATE" or "NATO SECRET-AVICULA" or "COSMIC TOP SECRET" or "COSMIC TOP SECRET-BOHEMIA" or "COSMIC TOP SECRET-BALK" or "COSMIC TOP SECRET ATOMAL" or "NATO SECRET ATOMAL" or "NATO CONFIDENTIAL ATOMAL", otherwise the DECL set is PROHIBITED.</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Conditional</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:MessageDowngradingOrDeclassificationDataType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="11" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element></xsd:sequence>
+<xsd:attribute name="mtfid" type="xsd:string" fixed="AFU.ASR" /><xsd:attributeGroup ref="ism:SecurityAttributesGroup" /></xsd:complexType>
+</xsd:element></xsd:schema>

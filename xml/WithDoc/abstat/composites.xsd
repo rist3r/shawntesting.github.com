@@ -1,0 +1,294 @@
+<?xml version="1.0" ?> 
+<xsd:schema targetNamespace="urn:mtf:mil:6040b:abstat:B.1.01.14:composite" xml:lang="en-US" xmlns="urn:mtf:mil:6040b:abstat:B.1.01.14:composite" xmlns:f="urn:mtf:mil:6040b:abstat:B.1.01.14:elemental" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+ <xsd:import namespace="urn:mtf:mil:6040b:abstat:B.1.01.14:elemental" schemaLocation="fields.xsd" /><xsd:complexType name="GeographicLocationLatLongSecondsType">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <FudName>GEOGRAPHIC LOCATION, LAT/LONG, SECONDS</FudName>
+   <FudExplanation>The location of a point on the earth's surface as defined by the intersection of angular distances measured north and south of the equator and east and west of a specified meridian.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>11</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:sequence>
+  <xsd:element name="LatitudeDegrees" type="f:LatitudeDegreesType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>1</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LatitudeMinuteAngular" type="f:LatitudeMinuteAngularType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>2</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LatitudeSecondAngular" type="f:LatitudeSecondAngularType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>3</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LatitudinalHemisphere" type="f:LatitudinalHemisphereType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>4</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LongitudeDegrees" type="f:LongitudeDegreesType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>5</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LongitudeMinuteAngular" type="f:LongitudeMinuteAngularType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>6</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LongitudeSecondAngular" type="f:LongitudeSecondAngularType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>7</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LongitudinalHemisphere" type="f:LongitudinalHemisphereType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>8</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+ </xsd:sequence>
+</xsd:complexType><xsd:complexType name="PlanOriginatorAndNumberType">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <FudName>PLAN ORIGINATOR AND NUMBER</FudName>
+   <FudExplanation>The official identifier of a military establishment which is responsible for a specific operation plan, and the identification number assigned to that specific operation plan.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>102</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:sequence>
+  <xsd:element name="PlanOriginator" type="f:PlanOriginatorType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>1</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="BlankSpaceCharacter" type="f:BlankSpaceCharacterType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>2</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="OperationPlanNumber" type="f:OperationPlanNumberType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>3</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+ </xsd:sequence>
+</xsd:complexType><xsd:complexType name="GeographicLocationLatLongMinutesType">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <FudName>GEOGRAPHIC LOCATION, LAT/LONG, MINUTES</FudName>
+   <FudExplanation>The location of a point on the earth's surface.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>469</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:sequence>
+  <xsd:element name="LatitudeDegrees" type="f:LatitudeDegreesType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>1</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LatitudeMinuteAngular" type="f:LatitudeMinuteAngularType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>2</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LatitudinalHemisphere" type="f:LatitudinalHemisphereType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>3</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LongitudeDegrees" type="f:LongitudeDegreesType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>4</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LongitudeMinuteAngular" type="f:LongitudeMinuteAngularType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>5</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LongitudinalHemisphere" type="f:LongitudinalHemisphereType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>6</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+ </xsd:sequence>
+</xsd:complexType><xsd:complexType name="MonthDayTimeType">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <FudName>MONTH DAY-TIME</FudName>
+   <FudExplanation>A representation of a specific month, day, and time.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>593</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.02</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+  <xsd:appinfo>
+   <FudName>MONTH DAY-TIME, ETRO</FudName>
+   <FudExplanation>A representation of a specific month, day, and time, Estimated Time Return to Operation (ETRO).</FudExplanation>
+   <FieldFormatIndexReferenceNumber>593</FieldFormatIndexReferenceNumber>
+   <FudNumber>2</FudNumber>
+   <VersionIndicator>B.1.01.02</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+  <xsd:appinfo>
+   <FudName>MONTH DAY-TIME, ATRO</FudName>
+   <FudExplanation>A representation of a specific month, day, and time, Actual Time Return to Operation (ATRO).</FudExplanation>
+   <FieldFormatIndexReferenceNumber>593</FieldFormatIndexReferenceNumber>
+   <FudNumber>3</FudNumber>
+   <VersionIndicator>B.1.01.02</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:sequence>
+  <xsd:element name="MonthNumeric" type="f:MonthNumericType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>1</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="Day" type="f:DayType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>2</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="HourTime" type="f:HourTimeType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>3</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="MinuteTime" type="f:MinuteTimeType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>4</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="TimeZone" type="f:TimeZoneType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>5</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+ </xsd:sequence>
+</xsd:complexType><xsd:complexType name="RunwayWeightBearingCapabilityType">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <FudName>RUNWAY WEIGHT-BEARING CAPABILITY</FudName>
+   <FudExplanation>The maximum weight-bearing capacity of a runway.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>603</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:sequence>
+  <xsd:element name="RunwayWeightBearingQualifier" type="f:RunwayWeightBearingQualifierType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>1</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="RunwayWeightBearingCapacityInThousandsOfPounds" type="f:RunwayWeightBearingCapacityInThousandsOfPoundsType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>2</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+ </xsd:sequence>
+</xsd:complexType><xsd:complexType name="RunwayDirectionDesignatorType">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <FudName>RUNWAY DIRECTION DESIGNATOR</FudName>
+   <FudExplanation>A designation of a runway which shows both its direction and its reciprocal.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>622</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:sequence>
+  <xsd:element name="RunwayDesignator_1" type="f:RunwayDesignatorType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>1</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="Hyphen" type="f:HyphenType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>2</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="RunwayDesignator_2" type="f:RunwayDesignatorType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>3</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+ </xsd:sequence>
+</xsd:complexType></xsd:schema>

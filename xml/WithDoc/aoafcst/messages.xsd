@@ -1,0 +1,1035 @@
+<?xml version="1.0" ?> 
+<xsd:schema targetNamespace="urn:mtf:mil:6040b:aoafcst:B.1.01.14" xml:lang="en-US" xmlns="urn:mtf:mil:6040b:aoafcst:B.1.01.14" xmlns:s="urn:mtf:mil:6040b:aoafcst:B.1.01.14:set" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ism="urn:us:gov:ic:ism:v2" xmlns:ddms="http://metadata.dod.mil/mdr/ns/DDMS/2.0/" xmlns:ICISM="urn:us:gov:ic:ism:v2" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+ <xsd:import namespace="urn:mtf:mil:6040b:aoafcst:B.1.01.14:set" schemaLocation="sets.xsd" />
+ <xsd:import namespace="urn:us:gov:ic:ism:v2" schemaLocation="IC-ISM-v2.xsd" />
+ <xsd:annotation>
+  <xsd:appinfo>
+   <ddms:security ICISM:classification="U" ICISM:ownerProducer="USA" ICISM:nonICmarkings="DIST_STMT_C" />
+  </xsd:appinfo>
+  <xsd:appinfo>DISTRIBUTION STATEMENT C. Distribution authorized to U.S. Government Agencies and their contractors only for administrative or operational use. Other requests for this document shall be referred to Defense Information Systems Agency Interoperability Directorate. WARNING - This document contains technical data whose export is restricted by the Arms Export Control Act (Title 22, U.S.C., Sec. 2751) or the Export Administration Act of 1979, as amended, Title 50, U.S.C., App. 2401. Violations of these export laws are subject to severe criminal penalties.  Disseminate in accordance with provisions of DOD Directive 5230.25.</xsd:appinfo>
+ </xsd:annotation><xsd:element name="AmphibiousObjectiveAreaForecast">
+ <xsd:annotation>
+  <xsd:documentation>The AOAFCST is used to provide weather forecast information pertinent to operations that involve amphibious landings.</xsd:documentation>
+  <xsd:appinfo>
+   <MtfName>AMPHIBIOUS OBJECTIVE AREA FORECAST</MtfName>
+   <MtfIdentifier>AOAFCST</MtfIdentifier>
+   <MtfIndexReferenceNumber>C525</MtfIndexReferenceNumber>
+   <MtfSponsor>USMC</MtfSponsor>
+   <MtfPurpose>The AOAFCST is used to provide weather forecast information pertinent to operations that involve amphibious landings.</MtfPurpose>
+   <MtfRelatedDocument>For further U.S. implementation guidance, see Repository of USMTF Program Items Document, items 297 and 300.</MtfRelatedDocument>
+   <MtfRemark>B.1.01.13 was updated by ICP M2017-04, which updated the REF Set.</MtfRemark>
+   <MtfNote />
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[3]F1 A /AOAFCST/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in MSGID (Set 3) is assigned the value "AOAFCST".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageTextFormatIdentifier))) then 'null' else xsn:or3(  string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageTextFormatIdentifier) eq "AOAFCST")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[3]F2 A /MIL-STD-6040(SERIES)/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 2 in MSGID (Set 3) is assigned the value "MIL-STD-6040(SERIES)".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/StandardOfMessageTextFormat))) then 'null' else xsn:or3(  string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/StandardOfMessageTextFormat) eq "MIL-STD-6040(SERIES)")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[3]F3 A /B.1.01.14/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 3 in MSGID (Set 3) is assigned the value "B.1.01.14".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/VersionOfMessageTextFormat))) then 'null' else xsn:or3(  string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/VersionOfMessageTextFormat) eq "B.1.01.14")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[4],AF3 R ([4],AF2 EQ /CHT/ | /DOC/)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 3 in REF (Set 4) is required if Field 2 in the same REF (Set 4) lexicographically equals "CHT" or "DOC".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmphibiousObjectiveAreaForecast/Reference))) then 'null' else xsn:and3( for $A in 1 to count( /*:AmphibiousObjectiveAreaForecast/Reference) return xsn:or3(  xsn:not3(   if ( not( exists( /*:AmphibiousObjectiveAreaForecast/Reference[ $A]/CommunicationType/*)) and not( exists( /*:AmphibiousObjectiveAreaForecast/Reference[ $A]/CommunicationType/*/*))) then 'null' else xsn:or3(  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/Reference[ $A]/CommunicationType/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/Reference[ $A]/CommunicationType/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/Reference[ $A]/CommunicationType/*)) eq "CHT",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/Reference[ $A]/CommunicationType/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/Reference[ $A]/CommunicationType/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/Reference[ $A]/CommunicationType/*)) eq "DOC")),  if ( not( exists( /*:AmphibiousObjectiveAreaForecast/Reference[ $A]))) then 'null' else  count( /*:AmphibiousObjectiveAreaForecast/Reference[ $A]/InformationProduct) != 0  ))</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[6]F1 A /METEOROLOGICAL SITUATION/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in GENTEXT (Set 6) is assigned the value "METEOROLOGICAL SITUATION".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmphibiousObjectiveAreaForecast/GeneralText_1/TextIndicator))) then 'null' else xsn:or3(  string( /*:AmphibiousObjectiveAreaForecast/GeneralText_1/TextIndicator) eq "METEOROLOGICAL SITUATION")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[7]F1 A /TWENTY-FOUR HOUR FORECAST/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in HEADING (Set 7) is assigned the value "TWENTY-FOUR HOUR FORECAST".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmphibiousObjectiveAreaForecast/HeadingInformation_1/HeadingInformation))) then 'null' else xsn:or3(  string( /*:AmphibiousObjectiveAreaForecast/HeadingInformation_1/HeadingInformation) eq "TWENTY-FOUR HOUR FORECAST")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[14S],Z[14]F1 A /AVIATION PARAMETERS/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in HEADING (Set 14) in every HEADING (Segment 14) is assigned the value "AVIATION PARAMETERS".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmphibiousObjectiveAreaForecast/AviationParametersSegment[HeadingInformation_2]))) then 'null' else xsn:and3( for $expr_1_1 in 1 to count( /*:AmphibiousObjectiveAreaForecast/AviationParametersSegment[HeadingInformation_2]) return if ( not( exists( /*:AmphibiousObjectiveAreaForecast/AviationParametersSegment[HeadingInformation_2][ $expr_1_1]/HeadingInformation_2/HeadingInformation))) then 'null' else xsn:or3(  string( /*:AmphibiousObjectiveAreaForecast/AviationParametersSegment[HeadingInformation_2][ $expr_1_1]/HeadingInformation_2/HeadingInformation) eq "AVIATION PARAMETERS"))</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[25S],Z[25]F1 A /SURF FORECAST/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in HEADING (Set 25) in every HEADING (Segment 25) is assigned the value "SURF FORECAST".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmphibiousObjectiveAreaForecast/SurfForecastSegment[HeadingInformation_3]))) then 'null' else xsn:and3( for $expr_1_1 in 1 to count( /*:AmphibiousObjectiveAreaForecast/SurfForecastSegment[HeadingInformation_3]) return if ( not( exists( /*:AmphibiousObjectiveAreaForecast/SurfForecastSegment[HeadingInformation_3][ $expr_1_1]/HeadingInformation_3/HeadingInformation))) then 'null' else xsn:or3(  string( /*:AmphibiousObjectiveAreaForecast/SurfForecastSegment[HeadingInformation_3][ $expr_1_1]/HeadingInformation_3/HeadingInformation) eq "SURF FORECAST"))</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[35]F1 A /BEACH CONDITION/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in GENTEXT (Set 35) is assigned the value "BEACH CONDITION".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmphibiousObjectiveAreaForecast/GeneralText_2/TextIndicator))) then 'null' else xsn:or3(  string( /*:AmphibiousObjectiveAreaForecast/GeneralText_2/TextIndicator) eq "BEACH CONDITION")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[36]F1 A /TACTICAL ASSESSMENT/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in GENTEXT (Set 36) is assigned the value "TACTICAL ASSESSMENT".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmphibiousObjectiveAreaForecast/GeneralText_3/TextIndicator))) then 'null' else xsn:or3(  string( /*:AmphibiousObjectiveAreaForecast/GeneralText_3/TextIndicator) eq "TACTICAL ASSESSMENT")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[37]F1 A /ATMOSPHERIC REFRACTIVE SUMMARY/</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 1 in HEADING (Set 37) is assigned the value "ATMOSPHERIC REFRACTIVE SUMMARY".</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>if ( not( exists( /*:AmphibiousObjectiveAreaForecast/HeadingInformation_4/HeadingInformation))) then 'null' else xsn:or3(  string( /*:AmphibiousObjectiveAreaForecast/HeadingInformation_4/HeadingInformation) eq "ATMOSPHERIC REFRACTIVE SUMMARY")</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[40] RP ([3]F10 EQ /CONFIDENTIAL/ | /SECRET/ | /TOP SECRET/ | /RESTRICTED/ | /NATO RESTRICTED/ | /NATO CONFIDENTIAL/ | /NATO SECRET/ | /NATO SECRET-SAVATE/ | /NATO SECRET-AVICULA/ | /COSMIC TOP SECRET/ | /COSMIC TOP SECRET-BOHEMIA/ | /COSMIC TOP SECRET-BALK/ | /COSMIC TOP SECRET ATOMAL/ | /NATO SECRET ATOMAL/ | /NATO CONFIDENTIAL ATOMAL/)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>DECL (Set 40) is required if Field 10 in MSGID (SET 3) lexicographically equals "CONFIDENTIAL" or "SECRET" or "TOP SECRET" or "RESTRICTED" or "NATO RESTRICTED" or "NATO CONFIDENTIAL" or "NATO SECRET" or "NATO SECRET-SAVATE" or "NATO SECRET-AVICULA" or "COSMIC TOP SECRET" or "COSMIC TOP SECRET-BOHEMIA" or "COSMIC TOP SECRET-BALK" or "COSMIC TOP SECRET ATOMAL" or "NATO SECRET ATOMAL" or "NATO CONFIDENTIAL ATOMAL" otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>for $cond in  if ( not( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) and not( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*))) then 'null' else xsn:or3(  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "CONFIDENTIAL",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "SECRET",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "TOP SECRET",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "RESTRICTED",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO RESTRICTED",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO CONFIDENTIAL",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET-SAVATE",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET-AVICULA",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET-BOHEMIA",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET-BALK",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "COSMIC TOP SECRET ATOMAL",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO SECRET ATOMAL",  string( if ( exists( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*)) then string-join( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*/*,"") else string( /*:AmphibiousObjectiveAreaForecast/MessageIdentifier/MessageSecurityClassification/*)) eq "NATO CONFIDENTIAL ATOMAL")  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  count( /*:AmphibiousObjectiveAreaForecast/MessageDowngradingOrDeclassificationData) != 0  else  count( /*:AmphibiousObjectiveAreaForecast/MessageDowngradingOrDeclassificationData) = 0</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <MtfStructuralRelationship>
+    <MtfStructuralRelationshipRule>[40]F2 RP ([40]F1 = FF679-4)</MtfStructuralRelationshipRule>
+    <MtfStructuralRelationshipExplanation>Field 2 in DECL (Set 40) is required if Field 1 in DECL (Set 40) uses alternative ORIGINAL CLASSIFICATION AUTHORITY (FF679-4) otherwise it is prohibited.</MtfStructuralRelationshipExplanation>
+    <MtfStructuralRelationshipXmlSnRule />
+    <MtfStructuralRelationshipXsnRule>for $cond in if ( not( exists( /*:AmphibiousObjectiveAreaForecast/MessageDowngradingOrDeclassificationData/SourceForClassification))) then 'null' else xsn:or3(  exists( /*:AmphibiousObjectiveAreaForecast/MessageDowngradingOrDeclassificationData/SourceForClassification/OriginalClassificationAuthority))  return if ( $cond instance of xs:string) then 'null' else if ( $cond) then  if ( not( exists( /*:AmphibiousObjectiveAreaForecast/MessageDowngradingOrDeclassificationData))) then 'null' else  count( /*:AmphibiousObjectiveAreaForecast/MessageDowngradingOrDeclassificationData/ReasonForClassification) != 0  else  if ( not( exists( /*:AmphibiousObjectiveAreaForecast/MessageDowngradingOrDeclassificationData))) then 'null' else  count( /*:AmphibiousObjectiveAreaForecast/MessageDowngradingOrDeclassificationData/ReasonForClassification) = 0</MtfStructuralRelationshipXsnRule>
+   </MtfStructuralRelationship>
+   <VersionIndicator>B.1.01.14</VersionIndicator>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+<xsd:sequence><xsd:choice minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <AlternativeType>Mutually Exclusive, None Required</AlternativeType>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:element name="ExerciseIdentification" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+   <xsd:documentation>The EXER set provides the designated code name or nickname, if the message supports an exercise.</xsd:documentation>
+   <xsd:appinfo>
+    <SetFormatPositionName>EXERCISE IDENTIFICATION</SetFormatPositionName>
+    <SetFormatPositionNumber>1</SetFormatPositionNumber>
+    <SetFormatPositionConcept>The EXER set provides the designated code name or nickname, if the message supports an exercise.</SetFormatPositionConcept>
+    <SetFormatPositionUseDescription />
+    <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+    <Repeatability>1</Repeatability>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexType>
+   <xsd:complexContent>
+    <xsd:extension base="s:ExerciseIdentificationType">
+     <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="1" />
+     <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+    </xsd:extension>
+   </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:element>
+ <xsd:element name="OperationIdentificationData" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+   <xsd:documentation>The OPER set provides the designated code name or nickname, if the message supports an operation.</xsd:documentation>
+   <xsd:appinfo>
+    <SetFormatPositionName>OPERATION IDENTIFICATION DATA</SetFormatPositionName>
+    <SetFormatPositionNumber>2</SetFormatPositionNumber>
+    <SetFormatPositionConcept>The OPER set provides the designated code name or nickname, if the message supports an operation.</SetFormatPositionConcept>
+    <SetFormatPositionUseDescription />
+    <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+    <Repeatability>1</Repeatability>
+   </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:complexType>
+   <xsd:complexContent>
+    <xsd:extension base="s:OperationIdentificationDataType">
+     <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="2" />
+     <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+    </xsd:extension>
+   </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:element>
+</xsd:choice>
+
+<xsd:element name="MessageIdentifier" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The MSGID set provides the message identification and originator.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>MESSAGE IDENTIFIER</SetFormatPositionName>
+   <SetFormatPositionNumber>3</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The MSGID set provides the message identification and originator.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:MessageIdentifierType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="3" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="Reference" minOccurs="0" maxOccurs="unbounded">
+ <xsd:annotation>
+  <xsd:documentation>The REF set provides both USMTF and non-USMTF references.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>REFERENCE</SetFormatPositionName>
+   <SetFormatPositionNumber>4</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The REF set provides both USMTF and non-USMTF references.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>unbounded</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:ReferenceType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="4" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="EffectiveDayTimePeriod" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The PERID set specifies the time period for the twenty-four hour forecast.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>EFFECTIVE DAY-TIME PERIOD</SetFormatPositionName>
+   <SetFormatPositionNumber>5</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The PERID set specifies the time period for the twenty-four hour forecast.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:EffectiveDayTimePeriodType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="5" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="GeneralText_1" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The GENTEXT/METEOROLOGICAL SITUATION set provides general weather information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>GENERAL TEXT</SetFormatPositionName>
+   <SetFormatPositionNumber>6</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The GENTEXT/METEOROLOGICAL SITUATION set provides general weather information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>Field 1 of the GENTEXT set must equal "METEOROLOGICAL SITUATION".</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:GeneralTextType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="6" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="HeadingInformation_1" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The HEADING/TWENTY-FOUR HOUR FORECAST set introduces the section for the forecast weather conditions over the next twenty-four hours.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>HEADING INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>7</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The HEADING/TWENTY-FOUR HOUR FORECAST set introduces the section for the forecast weather conditions over the next twenty-four hours.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>Field 1 of the HEADING set must equal "TWENTY-FOUR HOUR FORECAST".</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:HeadingInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="7" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="VisibilityInformation_1" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The VSBY set provides the forecast visibility information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>VISIBILITY INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>8</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The VSBY set provides the forecast visibility information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:VisibilityInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="8" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="WindPeriodInformation" minOccurs="1" maxOccurs="unbounded">
+ <xsd:annotation>
+  <xsd:documentation>The WINDPER set provides the forecast wind information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>WIND PERIOD INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>9</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The WINDPER set provides the forecast wind information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>unbounded</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:WindPeriodInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="9" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="TemperatureInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The TEMP set provides the forecast temperature information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>TEMPERATURE INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>10</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The TEMP set provides the forecast temperature information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:TemperatureInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="10" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="SeaTemperatureInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The SEATEMP set provides the forecast sea temperature and survival information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>SEA TEMPERATURE INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>11</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The SEATEMP set provides the forecast sea temperature and survival information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:SeaTemperatureInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="11" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="CombinedSeas" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The SEAS set provides the interaction of wind waves and swell. The combined seas height is equal to the square root of the sum of the squares of the wind waves and swell.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>COMBINED SEAS</SetFormatPositionName>
+   <SetFormatPositionNumber>12</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The SEAS set provides the interaction of wind waves and swell. The combined seas height is equal to the square root of the sum of the squares of the wind waves and swell.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:CombinedSeasType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="12" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="MeasuredWeatherConditions" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The ZULU set provides detailed fallout prediction parameter information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>MEASURED WEATHER CONDITIONS</SetFormatPositionName>
+   <SetFormatPositionNumber>13</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The ZULU set provides detailed fallout prediction parameter information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:MeasuredWeatherConditionsType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="13" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+<xsd:element name="AviationParametersSegment" minOccurs="1" maxOccurs="unbounded">
+ <xsd:annotation>
+  <xsd:documentation>The sets HEADING (AVIATION PARAMETERS) through SLNTVSBY form a MANDATORY SEGMENT to report multiple forecast weather conditions for aviation.</xsd:documentation>
+  <xsd:appinfo>
+   <SegmentStructureName>AVIATION PARAMETERS SEGMENT</SegmentStructureName>
+   <SegmentStructureConcept />
+   <SegmentStructureUseDescription>The sets HEADING (AVIATION PARAMETERS) through SLNTVSBY form a MANDATORY SEGMENT to report multiple forecast weather conditions for aviation.</SegmentStructureUseDescription>
+   <InitialSetFormatPosition>14</InitialSetFormatPosition>
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>unbounded</Repeatability>
+   <VersionIndicator />
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="HeadingInformation_2" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The HEADING/AVIATION PARAMETERS set introduces the section for the forecast weather conditions as it pertains to aviation.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>HEADING INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>14</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The HEADING/AVIATION PARAMETERS set introduces the section for the forecast weather conditions as it pertains to aviation.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>Field 1 of the HEADING set must equal "AVIATION PARAMETERS".</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:HeadingInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="14" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="WeatherLocation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The WEATHLOC set provides the forecast weather location.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>WEATHER LOCATION</SetFormatPositionName>
+   <SetFormatPositionNumber>15</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The WEATHLOC set provides the forecast weather location.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:WeatherLocationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="15" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="CloudLayerInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The CLDLYR set provides the forecast cloud layer information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>CLOUD LAYER INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>16</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The CLDLYR set provides the forecast cloud layer information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:CloudLayerInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="16" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="UpperAirData" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 4UPERAIR set provides the forecast upper level winds.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>UPPER AIR DATA</SetFormatPositionName>
+   <SetFormatPositionNumber>17</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 4UPERAIR set provides the forecast upper level winds.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:UpperAirDataType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="17" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="AirTurbulence" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 5TURB set provides the forecast air turbulence information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>AIR TURBULENCE</SetFormatPositionName>
+   <SetFormatPositionNumber>18</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 5TURB set provides the forecast air turbulence information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:AirTurbulenceType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="18" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="IcingInformation" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The 6ICING set provides forecast icing information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>ICING INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>19</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The 6ICING set provides forecast icing information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:IcingInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="19" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="MinimumAltimeterSetting" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The MINALT set provides the forecast minimum altimeter setting.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>MINIMUM ALTIMETER SETTING</SetFormatPositionName>
+   <SetFormatPositionNumber>20</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The MINALT set provides the forecast minimum altimeter setting.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:MinimumAltimeterSettingType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="20" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="PressureAndDensityAltitudeInformation" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The PADA set provides the forecast pressure and density altitude information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>PRESSURE AND DENSITY ALTITUDE INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>21</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The PADA set provides the forecast pressure and density altitude information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:PressureAndDensityAltitudeInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="21" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="ContrailInformation" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The CONTRAIL set provides forecast contrail information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>CONTRAIL INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>22</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The CONTRAIL set provides forecast contrail information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:ContrailInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="22" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="VisibilityInformation_2" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The VSBY set provides the forecast visibility information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>VISIBILITY INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>23</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The VSBY set provides the forecast visibility information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:VisibilityInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="23" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="SlantRangeVisibilityInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The SLNTVSBY set provides the forecast slant range visibility information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>SLANT RANGE VISIBILITY INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>24</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The SLNTVSBY set provides the forecast slant range visibility information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:SlantRangeVisibilityInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="24" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="segSeq" type="xsd:unsignedShort" fixed="14" /><xsd:attributeGroup ref="ism:SecurityAttributesGroup" /></xsd:complexType>
+</xsd:element>
+<xsd:element name="SurfForecastSegment" minOccurs="1" maxOccurs="unbounded">
+ <xsd:annotation>
+  <xsd:documentation>The sets HEADING (SURF FORECAST) through tide form a MANDATORY SEGMENT to report multiple forecast surf conditions.</xsd:documentation>
+  <xsd:appinfo>
+   <SegmentStructureName>SURF FORECAST SEGMENT</SegmentStructureName>
+   <SegmentStructureConcept />
+   <SegmentStructureUseDescription>The sets HEADING (SURF FORECAST) through tide form a MANDATORY SEGMENT to report multiple forecast surf conditions.</SegmentStructureUseDescription>
+   <InitialSetFormatPosition>25</InitialSetFormatPosition>
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>unbounded</Repeatability>
+   <VersionIndicator />
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="HeadingInformation_3" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The HEADING/SURF FORECAST set introduces the section for the forecast surf conditions.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>HEADING INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>25</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The HEADING/SURF FORECAST set introduces the section for the forecast surf conditions.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>Field 1 of the HEADING set must equal "SURF FORECAST".</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:HeadingInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="25" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="BeachDesignation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The BCHDESIG set provides beach location and designation information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>BEACH DESIGNATION</SetFormatPositionName>
+   <SetFormatPositionNumber>26</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The BCHDESIG set provides beach location and designation information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:BeachDesignationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="26" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="BreakerHeightInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The BKRHGT set provides the forecast breaker height information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>BREAKER HEIGHT INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>27</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The BKRHGT set provides the forecast breaker height information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:BreakerHeightInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="27" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="BreakerPeriodInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The BKRPRD set provides the forecast breaker period information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>BREAKER PERIOD INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>28</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The BKRPRD set provides the forecast breaker period information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:BreakerPeriodInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="28" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="BreakerTypeInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The BKRTYP set provides the forecast breaker type information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>BREAKER TYPE INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>29</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The BKRTYP set provides the forecast breaker type information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:BreakerTypeInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="29" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="BreakerAngleInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The BKRANGL set provides the forecast breaker angle information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>BREAKER ANGLE INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>30</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The BKRANGL set provides the forecast breaker angle information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:BreakerAngleInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="30" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="LittoralCurrentInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The CURRENT set provides the forecast current information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>LITTORAL CURRENT INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>31</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The CURRENT set provides the forecast current information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:LittoralCurrentInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="31" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="SurfZoneInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The SURFZONE set provides the forecast surf zone information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>SURF ZONE INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>32</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The SURFZONE set provides the forecast surf zone information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:SurfZoneInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="32" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="ModifiedSurfIndex" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The MSI set provides the forecast modified surf index information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>MODIFIED SURF INDEX</SetFormatPositionName>
+   <SetFormatPositionNumber>33</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The MSI set provides the forecast modified surf index information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:ModifiedSurfIndexType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="33" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="HighOrLowTideInformation" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The TIDE set provides the forecast high and low tide information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>HIGH OR LOW TIDE INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>34</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The TIDE set provides the forecast high and low tide information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:HighOrLowTideInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="34" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="segSeq" type="xsd:unsignedShort" fixed="25" /><xsd:attributeGroup ref="ism:SecurityAttributesGroup" /></xsd:complexType>
+</xsd:element>
+
+<xsd:element name="GeneralText_2" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The GENTEXT/BEACH CONDITION set provides general beach condition information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>GENERAL TEXT</SetFormatPositionName>
+   <SetFormatPositionNumber>35</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The GENTEXT/BEACH CONDITION set provides general beach condition information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>Field 1 of the GENTEXT set must equal "BEACH CONDITION".</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:GeneralTextType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="35" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="GeneralText_3" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The GENTEXT/TACTICAL ASSESSMENT set provides general tactical assessment information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>GENERAL TEXT</SetFormatPositionName>
+   <SetFormatPositionNumber>36</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The GENTEXT/TACTICAL ASSESSMENT set provides general tactical assessment information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>Field 1 of the GENTEXT set must equal "TACTICAL ASSESSMENT".</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Operationally Determined</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:GeneralTextType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="36" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="HeadingInformation_4" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The HEADING/ATMOSPHERIC REFRACTIVE SUMMARY set introduces the section for the atmospheric refractive conditions.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>HEADING INFORMATION</SetFormatPositionName>
+   <SetFormatPositionNumber>37</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The HEADING/ATMOSPHERIC REFRACTIVE SUMMARY set introduces the section for the atmospheric refractive conditions.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>Field 1 of the HEADING set must equal "ATMOSPHERIC REFRACTIVE SUMMARY".</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:HeadingInformationType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="37" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="DuctAltitude" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The DUCT set provides the forecast duct summary information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>DUCT ALTITUDE</SetFormatPositionName>
+   <SetFormatPositionNumber>38</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The DUCT set provides the forecast duct summary information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:DuctAltitudeType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="38" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="RadarPropagationConditionsSummary" minOccurs="1" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The RPCS set provides the forecast radar propagation conditions summary (PCS) information.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>RADAR PROPAGATION CONDITIONS SUMMARY</SetFormatPositionName>
+   <SetFormatPositionNumber>39</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The RPCS set provides the forecast radar propagation conditions summary (PCS) information.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription />
+   <OccurrenceCategory>Mandatory</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:RadarPropagationConditionsSummaryType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="39" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="Remarks" minOccurs="0" maxOccurs="1">
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:RemarksType">
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element>
+<xsd:element name="MessageDowngradingOrDeclassificationData" minOccurs="0" maxOccurs="1">
+ <xsd:annotation>
+  <xsd:documentation>The DECL set provides declassification or downgrading instructions, if the message is classified.</xsd:documentation>
+  <xsd:appinfo>
+   <SetFormatPositionName>MESSAGE DOWNGRADING OR DECLASSIFICATION DATA</SetFormatPositionName>
+   <SetFormatPositionNumber>40</SetFormatPositionNumber>
+   <SetFormatPositionConcept>The DECL set provides declassification or downgrading instructions, if the message is classified.</SetFormatPositionConcept>
+   <SetFormatPositionUseDescription>The DECL set is REQUIRED if Field 10 in the MSGID set lexicographically equals "CONFIDENTIAL" or "SECRET" or "TOP SECRET" or "RESTRICTED" or "NATO RESTRICTED" or "NATO CONFIDENTIAL" or "NATO SECRET" or "NATO SECRET-SAVATE" or "NATO SECRET-AVICULA" or "COSMIC TOP SECRET" or "COSMIC TOP SECRET-BOHEMIA" or "COSMIC TOP SECRET-BALK" or "COSMIC TOP SECRET ATOMAL" or "NATO SECRET ATOMAL" or "NATO CONFIDENTIAL ATOMAL", otherwise the DECL set is PROHIBITED.</SetFormatPositionUseDescription>
+   <OccurrenceCategory>Conditional</OccurrenceCategory>
+   <Repeatability>1</Repeatability>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:complexType>
+  <xsd:complexContent>
+   <xsd:extension base="s:MessageDowngradingOrDeclassificationDataType">
+    <xsd:attribute name="setSeq" type="xsd:unsignedShort" fixed="40" />
+    <xsd:attributeGroup ref="ism:SecurityAttributesGroup" />
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:element></xsd:sequence>
+<xsd:attribute name="mtfid" type="xsd:string" fixed="AOAFCST" /><xsd:attributeGroup ref="ism:SecurityAttributesGroup" /></xsd:complexType>
+</xsd:element></xsd:schema>

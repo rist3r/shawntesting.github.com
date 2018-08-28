@@ -1,0 +1,213 @@
+<?xml version="1.0" ?> 
+<xsd:schema targetNamespace="urn:mtf:mil:6040b:afu.fus:B.1.01.12:composite" xml:lang="en-US" xmlns="urn:mtf:mil:6040b:afu.fus:B.1.01.12:composite" xmlns:f="urn:mtf:mil:6040b:afu.fus:B.1.01.12:elemental" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+ <xsd:import namespace="urn:mtf:mil:6040b:afu.fus:B.1.01.12:elemental" schemaLocation="fields.xsd" /><xsd:complexType name="GeographicLocationLatLongSecondsType">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <FudName>GEOGRAPHIC LOCATION, LAT/LONG, SECONDS</FudName>
+   <FudExplanation>The location of a point on the earth's surface as defined by the intersection of angular distances measured north and south of the equator and east and west of a specified meridian.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>11</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:sequence>
+  <xsd:element name="LatitudeDegrees" type="f:LatitudeDegreesType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>1</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LatitudeMinuteAngular" type="f:LatitudeMinuteAngularType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>2</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LatitudeSecondAngular" type="f:LatitudeSecondAngularType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>3</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LatitudinalHemisphere" type="f:LatitudinalHemisphereType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>4</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LongitudeDegrees" type="f:LongitudeDegreesType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>5</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LongitudeMinuteAngular" type="f:LongitudeMinuteAngularType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>6</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LongitudeSecondAngular" type="f:LongitudeSecondAngularType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>7</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="LongitudinalHemisphere" type="f:LongitudinalHemisphereType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>8</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+ </xsd:sequence>
+</xsd:complexType><xsd:complexType name="PlanOriginatorAndNumberType">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <FudName>PLAN ORIGINATOR AND NUMBER</FudName>
+   <FudExplanation>The official identifier of a military establishment which is responsible for a specific operation plan, and the identification number assigned to that specific operation plan.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>102</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:sequence>
+  <xsd:element name="PlanOriginator" type="f:PlanOriginatorType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>1</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="BlankSpaceCharacter" type="f:BlankSpaceCharacterType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>2</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="OperationPlanNumber" type="f:OperationPlanNumberType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>3</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+ </xsd:sequence>
+</xsd:complexType><xsd:complexType name="ShipIdentificationType">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <FudName>SHIP IDENTIFICATION</FudName>
+   <FudExplanation>The identification of a specific ship by type and hull number.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>458</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:sequence>
+  <xsd:element name="ShipType" type="f:ShipTypeType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>1</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="Hyphen" type="f:HyphenType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>2</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="HullNumber" type="f:HullNumberType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>3</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+ </xsd:sequence>
+</xsd:complexType><xsd:complexType name="NavalTaskIdentifierType">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <FudName>NAVAL TASK IDENTIFIER</FudName>
+   <FudExplanation>An identification of a specific Naval task echelon.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>489</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.00</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:sequence>
+  <xsd:element name="NavalTaskIdentifierEchelonLevel" type="f:NavalTaskIdentifierEchelonLevelType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>1</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="NavalTaskOrganizationEchelonNumber" type="f:NavalTaskOrganizationEchelonNumberType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>2</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+ </xsd:sequence>
+</xsd:complexType><xsd:complexType name="MgrsUtmGridZoneAnd100KmSquareType">
+ <xsd:annotation>
+  <xsd:appinfo>
+   <FudName>MGRS-UTM GRID ZONE, AND 100-KM SQUARE</FudName>
+   <FudExplanation>The Military Grid Reference System (MGRS) based on the Universal Transverse Mercator (UTM) system (MGRS-UTM) used for locating any point on the earth between latitude 80 degrees south and 84 degrees north, which corresponds to 100-kilometer precision.</FudExplanation>
+   <FieldFormatIndexReferenceNumber>1023</FieldFormatIndexReferenceNumber>
+   <FudNumber>1</FudNumber>
+   <VersionIndicator>B.1.01.01</VersionIndicator>
+   <FudSponsor />
+   <FudRelatedDocument>NONE</FudRelatedDocument>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <xsd:sequence>
+  <xsd:element name="MgrsUtmGridZoneColumn" type="f:MgrsUtmGridZoneColumnType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>1</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="MgrsUtmGridZoneRow" type="f:MgrsUtmGridZoneRowType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>2</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="_100000MeterSquareColumn" type="f:_100000MeterSquareColumnType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>3</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="_100000MeterSquareRow" type="f:_100000MeterSquareRowType">
+   <xsd:annotation>
+    <xsd:appinfo>
+     <ElementalFfirnFudnSequence>4</ElementalFfirnFudnSequence>
+    </xsd:appinfo>
+   </xsd:annotation>
+  </xsd:element>
+ </xsd:sequence>
+</xsd:complexType></xsd:schema>
